@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://csrjrtmfmhn8d"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dygii"]
+radius = 0.13
+height = 0.26
+
+[node name="Pearl" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_dygii")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqlvw82fvpvyw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_o0jno"]
+radius = 0.095
+height = 0.305
+radial_segments = 8
+rings = 1
+
+[node name="Sinker" type="Node3D"]
+
+[node name="SinkerModel" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_o0jno")

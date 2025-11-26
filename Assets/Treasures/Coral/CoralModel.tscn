@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://rxk1evv2k2mb"]
+
+[ext_resource type="PackedScene" uid="uid://c852e33gemokj" path="res://Assets/Treasures/Coral/coral.glb" id="1_f4na5"]
+
+[node name="Coral" type="Node3D"]
+
+[node name="coral" parent="." instance=ExtResource("1_f4na5")]

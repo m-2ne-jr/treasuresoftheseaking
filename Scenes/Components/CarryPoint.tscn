@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgdvyk6n5b8pi"]
+
+[ext_resource type="Script" uid="uid://ddtkhchpavuub" path="res://Scripts/Components/CarryPoint.gd" id="1_kgwdj"]
+
+[sub_resource type="Animation" id="Animation_0cav8"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_kgwdj"]
+resource_name = "rotate_point"
+length = 2.0000033
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.2588, 0, 0, 0.9659, 1, 1, 0, 0.9659, 0.2588, 0, 2.0000033, 1, 0.2588, 0, 0, -0.9659)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2tejq"]
+_data = {
+&"RESET": SubResource("Animation_0cav8"),
+&"rotate_point": SubResource("Animation_kgwdj")
+}
+
+[node name="CarryPoint" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("1_kgwdj")
+metadata/IsCarrying = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_2tejq")
+}

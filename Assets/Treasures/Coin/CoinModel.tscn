@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://csltfbuggtqq7"]
+
+[ext_resource type="PackedScene" uid="uid://b34qjeq8if4lw" path="res://Assets/Treasures/Coin/coin.glb" id="1_hg7g3"]
+
+[node name="Coin" type="Node3D"]
+
+[node name="coin" parent="." instance=ExtResource("1_hg7g3")]
+transform = Transform3D(1.4975889, 0, 0, 0, 1.4975889, 0, 0, 0, 1.4975889, 0, 0, 0)

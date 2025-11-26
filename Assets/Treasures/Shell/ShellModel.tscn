@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bogyqci8jelnd"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_eiwtw"]
+left_to_right = 0.2
+size = Vector3(0.4325, 0.1535, 0.3435)
+
+[node name="Shell" type="Node3D"]
+
+[node name="ShellModel" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_eiwtw")

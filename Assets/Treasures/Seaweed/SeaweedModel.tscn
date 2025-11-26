@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfqrcdg838raq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_odgam"]
+size = Vector3(0.171, 0.0095, 0.7485)
+
+[node name="Seaweed" type="Node3D"]
+
+[node name="SeaweedModel" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_odgam")

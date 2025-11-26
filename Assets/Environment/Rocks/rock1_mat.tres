@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c5yr33p2pejlk"]
+
+[ext_resource type="Texture2D" uid="uid://ddia1vjnly8c0" path="res://Assets/Environment/Rocks/rocktype1_rock_tex.png" id="1_5qmak"]
+
+[resource]
+resource_name = "rock1_mat"
+diffuse_mode = 1
+specular_mode = 1
+albedo_texture = ExtResource("1_5qmak")
+roughness = 0.9

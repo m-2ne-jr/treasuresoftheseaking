@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Treasure" load_steps=4 format=3 uid="uid://0im1c7gxgjys"]
+
+[ext_resource type="Script" uid="uid://dsgy5p1mqkdk8" path="res://Scripts/Resources/Treasure.gd" id="1_28stj"]
+[ext_resource type="PackedScene" uid="uid://cocwkl2uucula" path="res://Assets/Treasures/Gold/GoldModel.tscn" id="2_28stj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ujyc8"]
+size = Vector3(0.3645, 0.1115, 0.1855)
+
+[resource]
+script = ExtResource("1_28stj")
+name = "Gold"
+value = 70
+weight = 4.0
+visual_scene = ExtResource("2_28stj")
+hitbox_shape = SubResource("BoxShape3D_ujyc8")
+position_offset = 0.045

@@ -1,0 +1,301 @@
+[gd_scene load_steps=19 format=3 uid="uid://b2jhi147qhduj"]
+
+[ext_resource type="Script" uid="uid://badkmpse8x63s" path="res://Scripts/Objects/BigWave.gd" id="1_etyyo"]
+[ext_resource type="Material" uid="uid://cvnmnk8qxlhqg" path="res://Assets/Environment/Wave/wave_mat.tres" id="2_anvhn"]
+[ext_resource type="Script" uid="uid://bkgrqvbg6tobh" path="res://Scripts/Components/TreasureSpawner.gd" id="2_etyyo"]
+[ext_resource type="Script" uid="uid://66wxi1qfe82q" path="res://Scripts/Objects/WaveDepth.gd" id="2_wnu15"]
+[ext_resource type="PackedScene" uid="uid://jpifec0xkcu7" path="res://Scenes/Objects/Treasure.tscn" id="3_dyqui"]
+
+[sub_resource type="Resource" id="Resource_hgv4c"]
+script = ExtResource("2_wnu15")
+max_depth = 1
+animation_name = &"wave_short"
+metadata/_custom_type_script = "uid://66wxi1qfe82q"
+
+[sub_resource type="Resource" id="Resource_1hlkv"]
+script = ExtResource("2_wnu15")
+max_depth = 3
+animation_name = &"wave_medium"
+metadata/_custom_type_script = "uid://66wxi1qfe82q"
+
+[sub_resource type="Resource" id="Resource_bw54e"]
+script = ExtResource("2_wnu15")
+max_depth = 5
+animation_name = &"wave_full"
+metadata/_custom_type_script = "uid://66wxi1qfe82q"
+
+[sub_resource type="Curve3D" id="Curve3D_etyyo"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.0694, 11.7297, 0, 0, 0, 0, 0, 0, 0, -5.4233, 81.5012),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_etyyo"]
+material = ExtResource("2_anvhn")
+size = Vector3(200, 5, 300)
+subdivide_width = 50
+subdivide_depth = 50
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_we14y"]
+size = Vector3(200, 4.894, 300)
+
+[sub_resource type="Curve3D" id="Curve3D_we14y"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 3, -25, 0, 0, 0, 0, 0, 0, 0, 3, 30),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fdm4g"]
+size = Vector3(200, 35, 0.2721)
+
+[sub_resource type="Animation" id="Animation_we14y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpawnerPath/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_anvhn"]
+length = 22.0
+loop_mode = 2
+step = 0.033
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WavePath/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -10, 0, 10, 0, 1, -10, 0, 10, 0),
+"times": PackedFloat32Array(0, 22)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 21.933332, 21.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [0],
+"method": &"set_wave_state"
+}, {
+"args": [],
+"method": &"get_next_wave_random"
+}, {
+"args": [],
+"method": &"request_next_wave_length"
+}, {
+"args": [],
+"method": &"go_to_next_wave"
+}, {
+"args": [1],
+"method": &"set_wave_state"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpawnerPath/PathFollow3D:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 22),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_5q364"]
+length = 14.0
+loop_mode = 2
+step = 0.033
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WavePath/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -6, 0, 6, 0, 0.5, -6, 0, 6, 0),
+"times": PackedFloat32Array(0, 14)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 13.933333, 13.966666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [0],
+"method": &"set_wave_state"
+}, {
+"args": [],
+"method": &"get_next_wave_random"
+}, {
+"args": [],
+"method": &"request_next_wave_length"
+}, {
+"args": [],
+"method": &"go_to_next_wave"
+}, {
+"args": [1],
+"method": &"set_wave_state"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpawnerPath/PathFollow3D:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_fdm4g"]
+resource_name = "wave_movement"
+length = 10.0
+loop_mode = 2
+step = 0.033
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WavePath/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(0, -3.2, 0, 3.2, 0, 0.2, -3.2, 0, 3.2, 0),
+"times": PackedFloat32Array(0, 10)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 9.933333, 9.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [0],
+"method": &"set_wave_state"
+}, {
+"args": [],
+"method": &"get_next_wave_random"
+}, {
+"args": [],
+"method": &"request_next_wave_length"
+}, {
+"args": [],
+"method": &"go_to_next_wave"
+}, {
+"args": [1],
+"method": &"set_wave_state"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpawnerPath/PathFollow3D:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5q364"]
+_data = {
+&"RESET": SubResource("Animation_we14y"),
+&"wave_full": SubResource("Animation_anvhn"),
+&"wave_medium": SubResource("Animation_5q364"),
+&"wave_short": SubResource("Animation_fdm4g")
+}
+
+[node name="BIG WAVE" type="Node3D"]
+script = ExtResource("1_etyyo")
+depths = Dictionary[int, ExtResource("2_wnu15")]({
+0: SubResource("Resource_hgv4c"),
+1: SubResource("Resource_1hlkv"),
+2: SubResource("Resource_bw54e")
+})
+
+[node name="WavePath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_etyyo")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="WavePath"]
+transform = Transform3D(0.9999911, 0, 0, 0, 0.9999392, 0, 0, 0, 0.99994075, 0, 0.0694, 11.7297)
+rotation_mode = 0
+loop = false
+tilt_enabled = false
+
+[node name="Wave" type="Node3D" parent="WavePath/PathFollow3D"]
+transform = Transform3D(1.3826661, 0, 0, 0, 1, 0, 0, 0, 1.2430068, 0, -2.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WavePath/PathFollow3D/Wave"]
+mesh = SubResource("BoxMesh_etyyo")
+
+[node name="WaveHurtbox" type="Area3D" parent="WavePath/PathFollow3D/Wave"]
+collision_layer = 128
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WavePath/PathFollow3D/Wave/WaveHurtbox"]
+shape = SubResource("BoxShape3D_we14y")
+debug_color = Color(1, 0, 0.1333332, 1)
+
+[node name="SpawnerPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_we14y")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="SpawnerPath"]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 3, -25)
+rotation_mode = 0
+loop = false
+tilt_enabled = false
+
+[node name="TreasureSpawner" type="Node3D" parent="SpawnerPath/PathFollow3D"]
+script = ExtResource("2_etyyo")
+treasure_object_scene = ExtResource("3_dyqui")
+
+[node name="SpawnerArea" type="Area3D" parent="SpawnerPath/PathFollow3D/TreasureSpawner"]
+collision_layer = 32
+collision_mask = 68
+input_ray_pickable = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnerPath/PathFollow3D/TreasureSpawner/SpawnerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.499998, 0)
+shape = SubResource("BoxShape3D_fdm4g")
+debug_color = Color(0.38330108, 0.61314744, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_5q364")
+}
+
+[connection signal="area_shape_exited" from="SpawnerPath/PathFollow3D/TreasureSpawner/SpawnerArea" to="SpawnerPath/PathFollow3D/TreasureSpawner" method="_on_spawner_exited"]
+[connection signal="body_exited" from="SpawnerPath/PathFollow3D/TreasureSpawner/SpawnerArea" to="SpawnerPath/PathFollow3D/TreasureSpawner" method="_on_spawner_treasure_exited"]

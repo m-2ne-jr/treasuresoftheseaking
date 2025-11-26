@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://0if2iy32cv7j"]
+
+[ext_resource type="Texture2D" uid="uid://ro7j2etk2jtc" path="res://Assets/Treasures/Coral/coral_coral_tex.png" id="1_47nhc"]
+
+[resource]
+resource_name = "coral_mat"
+diffuse_mode = 1
+specular_mode = 1
+albedo_texture = ExtResource("1_47nhc")
+roughness = 0.71
+clearcoat_roughness = 1.0
+heightmap_scale = -2.575
+proximity_fade_distance = 227.3

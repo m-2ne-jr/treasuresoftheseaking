@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bry8gdfs0h4th"]
+
+[ext_resource type="PackedScene" uid="uid://bkv6sqt3qfy50" path="res://Assets/Environment/Rocks/rocktype2.glb" id="1_wv2cd"]
+
+[node name="Rock02" type="Node3D"]
+
+[node name="rocktype2" parent="." instance=ExtResource("1_wv2cd")]

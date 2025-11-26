@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Treasure" load_steps=4 format=3 uid="uid://c3t0uldgecnvv"]
+
+[ext_resource type="Script" uid="uid://dsgy5p1mqkdk8" path="res://Scripts/Resources/Treasure.gd" id="1_ujyc8"]
+[ext_resource type="PackedScene" uid="uid://rxk1evv2k2mb" path="res://Assets/Treasures/Coral/CoralModel.tscn" id="2_ujyc8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ujyc8"]
+size = Vector3(0.3701172, 0.14550781, 0.5957031)
+
+[resource]
+script = ExtResource("1_ujyc8")
+name = "Coral"
+value = 7
+weight = 0.15
+visual_scene = ExtResource("2_ujyc8")
+hitbox_shape = SubResource("BoxShape3D_ujyc8")
+position_offset = 0.045

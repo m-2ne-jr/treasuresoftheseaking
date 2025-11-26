@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cvnmnk8qxlhqg"]
+
+[ext_resource type="Shader" uid="uid://omyv7wtxsxgg" path="res://Assets/Environment/Wave/wave_shader.tres" id="1_gtwk3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_gtwk3")
+shader_parameter/WaterColor = Color(0.035294, 0.494118, 1, 1)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cocwkl2uucula"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1jctw"]
+size = Vector3(0.3645, 0.1115, 0.1855)
+
+[node name="GoldBar" type="Node3D"]
+
+[node name="GoldModel" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_1jctw")

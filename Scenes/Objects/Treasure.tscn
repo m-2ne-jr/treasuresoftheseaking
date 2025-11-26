@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://jpifec0xkcu7"]
+
+[ext_resource type="Script" uid="uid://bn5plhipq0cmf" path="res://Scripts/Objects/TreasureObject.gd" id="1_c0nkl"]
+
+[sub_resource type="Animation" id="Animation_tg8fx"]
+resource_name = "wait_activate_hitbox"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"allow_pick_up"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esmnb"]
+_data = {
+&"wait_allow_pick_up": SubResource("Animation_tg8fx")
+}
+
+[node name="Treasure" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 271
+input_ray_pickable = false
+linear_damp = 0.5
+angular_damp = 3.0
+script = ExtResource("1_c0nkl")
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_esmnb")
+}

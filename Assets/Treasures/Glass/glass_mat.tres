@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dhvny623l236w"]
+
+[resource]
+resource_name = "glass_mat"
+transparency = 1
+cull_mode = 2
+diffuse_mode = 1
+specular_mode = 1
+albedo_color = Color(0.008199992, 0.41, 0.06846993, 0.59607846)
+roughness = 0.18
+anisotropy = 0.9
+ao_light_affect = 0.73
+refraction_scale = 0.24

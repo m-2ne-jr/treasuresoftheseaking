@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://csu8e0eqar52g"]
+
+[ext_resource type="Texture2D" uid="uid://brmkoelaac1hc" path="res://Assets/Environment/Beach/beach_beach_tex.png" id="1_ljbhf"]
+
+[resource]
+resource_name = "beach_mat"
+diffuse_mode = 1
+specular_mode = 2
+albedo_texture = ExtResource("1_ljbhf")
+uv1_scale = Vector3(50, 50, 50)

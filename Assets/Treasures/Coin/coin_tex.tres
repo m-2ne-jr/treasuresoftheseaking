@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dyckd83rabrsl"]
+
+[ext_resource type="Texture2D" uid="uid://dvxxbeq57w68w" path="res://Assets/Treasures/Coin/coin_coin_tex.png" id="1_lvn70"]
+
+[resource]
+resource_name = "coin_tex"
+cull_mode = 2
+diffuse_mode = 1
+specular_mode = 1
+albedo_texture = ExtResource("1_lvn70")
+metallic = 0.22834644
+roughness = 0.88188976

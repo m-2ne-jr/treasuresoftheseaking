@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b2gw5c0omkxmq"]
+
+[ext_resource type="Texture2D" uid="uid://cm5igt5tq6ywv" path="res://Assets/Environment/Beach/dune_beach_tex.png" id="1_aar6j"]
+
+[resource]
+resource_name = "dune_mat"
+diffuse_mode = 1
+specular_mode = 2
+albedo_texture = ExtResource("1_aar6j")
+uv1_scale = Vector3(4, 4, 4)

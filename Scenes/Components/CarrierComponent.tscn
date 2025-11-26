@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://qhq0ikla836l"]
+
+[ext_resource type="Script" uid="uid://3jcglfaj2ld" path="res://Scripts/Components/CarrierComponent.gd" id="1_53ub0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_53ub0"]
+radius = 0.14160156
+height = 0.535239
+
+[node name="CarrierComponent" type="Node3D"]
+script = ExtResource("1_53ub0")
+carry_limit = null
+
+[node name="NestDropArea" type="Area3D" parent="."]
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NestDropArea"]
+transform = Transform3D(1, 1.7763568e-15, 0, 0, 1, 0, 0, 0, 1, 2.6551566e-16, 0.14947203, 0)
+shape = SubResource("CapsuleShape3D_53ub0")
+
+[connection signal="area_entered" from="NestDropArea" to="." method="_on_nest_entered"]

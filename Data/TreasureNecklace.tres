@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Treasure" load_steps=4 format=3 uid="uid://db87x4qkio785"]
+
+[ext_resource type="Script" uid="uid://dsgy5p1mqkdk8" path="res://Scripts/Resources/Treasure.gd" id="1_a6pxm"]
+[ext_resource type="PackedScene" uid="uid://crtqjyg1ljtaa" path="res://Assets/Treasures/Necklace/NecklaceModel.tscn" id="2_a6pxm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a6pxm"]
+height = 0.067
+radius = 0.267
+
+[resource]
+script = ExtResource("1_a6pxm")
+name = "Necklace"
+value = 50
+weight = 1.2
+visual_scene = ExtResource("2_a6pxm")
+hitbox_shape = SubResource("CylinderShape3D_a6pxm")
+position_offset = 0.075
