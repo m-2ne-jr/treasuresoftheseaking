@@ -19,6 +19,7 @@ signal carry_limit_reached(is_maxed: bool)
 func _ready() -> void:
 	SignalBus.treasure_list_changed.connect(set_point_positions)
 	SignalBus.treasure_list_changed.connect(check_carry_limit)
+	SignalBus.player_died.connect(drop_all_treasures)
 	
 func _on_treasure_picked_up(treasure_object: TreasureObject) -> void:
 	if active_treasures.size() >= GameMaster.carry_limit:
@@ -56,6 +57,14 @@ func drop_treasure(current_speed: float):
 	var treasure_to_drop: Treasure = active_treasures.keys()[index]
 	treasure_spawner.spawn_treasure_with_force(treasure_to_drop, current_speed)
 	remove_treasure_from_list(treasure_to_drop)
+
+func drop_all_treasures():
+	if active_treasures.is_empty():
+		return
+	for i in range(active_treasures.size(), 0, -1):
+		var treasure: Treasure = active_treasures.keys()[i - 1]
+		treasure_spawner.spawn_treasure_as_drop(treasure)
+		remove_treasure_from_list(treasure)
 
 func add_treasure_to_list(treasure: Treasure):
 	var point = carry_point.instantiate() as CarryPoint

@@ -245,7 +245,7 @@ bones/3/parent = 2
 bones/3/rest = Transform3D(0.6757247, -0.73715407, -8.477065e-08, 0.737154, 0.67572474, 2.4998062e-07, -1.2699262e-07, -2.3140714e-07, 0.99999994, -5.078005e-15, 0.7670453, 1.4901161e-08)
 bones/3/enabled = true
 bones/3/position = Vector3(-5.078005e-15, 0.7670453, 1.4901161e-08)
-bones/3/rotation = Quaternion(-1.314767e-07, 1.153166e-08, 0.4026632, 0.91534823)
+bones/3/rotation = Quaternion(-1.3147668e-07, 1.1531665e-08, 0.40266317, 0.91534823)
 bones/3/scale = Vector3(0.99999994, 1, 0.99999994)
 bones/4/name = "Body_2"
 bones/4/parent = 0
@@ -280,7 +280,7 @@ bones/8/parent = 7
 bones/8/rest = Transform3D(0.6757247, 0.737154, 8.5012246e-08, -0.737154, 0.6757247, 2.496713e-07, 1.2660134e-07, -2.3137619e-07, 0.99999994, 1.5252903e-15, 0.7670453, 1.4901161e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(1.5252903e-15, 0.7670453, 1.4901161e-08)
-bones/8/rotation = Quaternion(-1.3138376e-07, -1.1358814e-08, -0.40266317, 0.91534823)
+bones/8/rotation = Quaternion(-1.3138376e-07, -1.1358815e-08, -0.40266317, 0.91534823)
 bones/8/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
 
 [node name="Body" type="MeshInstance3D" parent="Skin/Armature/Skeleton3D"]
@@ -362,7 +362,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Skin/Armature/Skeleton3D")
 
 [node name="CarryContainer" type="Node3D" parent="CarrierComponent/HeadAttachment"]
-transform = Transform3D(26.81, -8.943271e-13, 1.6819842e-12, 0, 23.671824, 12.5865345, -1.9049651e-12, -12.5865345, 23.671824, 1.2372884e-08, 0.7245273, -0.34415442)
+transform = Transform3D(26.81, -8.943271e-13, 1.6819842e-12, 0, 23.671824, 12.5865345, -1.9049651e-12, -12.5865345, 23.671824, 1.2372892e-08, 0.835236, -0.25471264)
 
 [node name="BodyAttachment" type="BoneAttachment3D" parent="CarrierComponent"]
 transform = Transform3D(0.07463372, -7.128165e-15, 1.7794033e-08, 8.7843155e-09, 0.06490533, -0.03684409, -1.5474624e-08, 0.036844093, 0.06490533, 7.309301e-15, 0.14648932, -0.00038023738)
@@ -372,7 +372,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../../Skin/Armature/Skeleton3D")
 
 [node name="CarryContainer2" type="Node3D" parent="CarrierComponent/BodyAttachment"]
-transform = Transform3D(26.81, -2.6334092e-06, 5.8551027e-06, -8.472856e-07, 22.785578, 14.127758, -6.363897e-06, -14.127758, 22.785578, 1.8709599e-07, 1.0254399, -0.8804216)
+transform = Transform3D(26.81, -2.6334092e-06, 5.8551027e-06, -8.472856e-07, 22.785578, 14.127758, -6.363897e-06, -14.127758, 22.785578, 1.705732e-07, 0.9855721, -0.9447213)
 
 [node name="CarryContainer3" type="Node3D" parent="CarrierComponent/BodyAttachment"]
 transform = Transform3D(26.81, -2.6334092e-06, 5.8551027e-06, -8.472856e-07, 22.785578, 14.127758, -6.363897e-06, -14.127758, 22.785578, -3.2653955e-07, -0.09809367, -1.8161951)
@@ -384,4 +384,3 @@ transform = Transform3D(26.81, -2.6334092e-06, 5.8551027e-06, -8.472856e-07, 22.
 [connection signal="treasure_picked_up" from="PickupComponent" to="CarrierComponent" method="_on_treasure_picked_up"]
 [connection signal="carry_limit_reached" from="CarrierComponent" to="." method="_on_carry_limit_reached"]
 [connection signal="treasure_drop_successful" from="CarrierComponent" to="Skin/AnimatorComponent" method="on_treasure_drop_success"]
-[connection signal="treasure_pickup_ready" from="CarrierComponent/RootAttachment/TreasureSpawner" to="PickupComponent" method="check_for_pickups"]
