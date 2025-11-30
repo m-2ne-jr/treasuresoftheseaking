@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c7e3an4jyr40x"]
+
+[ext_resource type="Texture2D" uid="uid://dlp6knlex6g3a" path="res://Assets/Treasures/Necklace/necklace_necklace_tex-necklace_alpha.png" id="1_qeooo"]
+[ext_resource type="Texture2D" uid="uid://dcpbijjoqvt1s" path="res://Assets/Treasures/Necklace/necklace_necklace_metallic-necklace_rough.png" id="2_ygfma"]
+
+[resource]
+resource_name = "necklace_mat"
+diffuse_mode = 1
+albedo_texture = ExtResource("1_qeooo")
+metallic = 1.0
+metallic_texture = ExtResource("2_ygfma")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_ygfma")
+roughness_texture_channel = 1

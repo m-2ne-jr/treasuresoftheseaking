@@ -38,7 +38,7 @@ subdivide_width = 50
 subdivide_depth = 50
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_we14y"]
-size = Vector3(200, 4.894, 300)
+size = Vector3(200, 4.9225, 300)
 
 [sub_resource type="Curve3D" id="Curve3D_we14y"]
 _data = {
@@ -66,7 +66,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_anvhn"]
-length = 22.0
+length = 20.0
 loop_mode = 2
 step = 0.033
 tracks/0/type = "bezier"
@@ -77,8 +77,8 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -10, 0, 10, 0, 1, -10, 0, 10, 0),
-"times": PackedFloat32Array(0, 22)
+"points": PackedFloat32Array(0, -6, 0, 6, 0, 1, -10, 0, 6, 0),
+"times": PackedFloat32Array(0, 20)
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -87,7 +87,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 21.933332, 21.966667),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 19.933332, 19.966667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": [0],
@@ -113,14 +113,14 @@ tracks/2/path = NodePath("SpawnerPath/PathFollow3D:progress_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 22),
+"times": PackedFloat32Array(0, 20),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_5q364"]
-length = 14.0
+length = 13.0
 loop_mode = 2
 step = 0.033
 tracks/0/type = "bezier"
@@ -131,8 +131,8 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -6, 0, 6, 0, 0.5, -6, 0, 6, 0),
-"times": PackedFloat32Array(0, 14)
+"points": PackedFloat32Array(0, -5.5, 0, 5.5, 0, 0.5, -5.5, 0, 5.5, 0),
+"times": PackedFloat32Array(0, 13)
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -141,7 +141,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 13.933333, 13.966666),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 12.933333, 12.966666),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": [0],
@@ -167,7 +167,7 @@ tracks/2/path = NodePath("SpawnerPath/PathFollow3D:progress_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 14),
+"times": PackedFloat32Array(0, 13),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -175,7 +175,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_fdm4g"]
 resource_name = "wave_movement"
-length = 10.0
+length = 8.0
 loop_mode = 2
 step = 0.033
 tracks/0/type = "bezier"
@@ -186,8 +186,8 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(0, -3.2, 0, 3.2, 0, 0.2, -3.2, 0, 3.2, 0),
-"times": PackedFloat32Array(0, 10)
+"points": PackedFloat32Array(0, -3, 0, 3, 0, 0.2, -3, 0, 3, 0),
+"times": PackedFloat32Array(0, 8)
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -196,7 +196,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 9.933333, 9.966667),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 7.9333334, 7.966667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": [0],
@@ -222,7 +222,7 @@ tracks/2/path = NodePath("SpawnerPath/PathFollow3D:progress_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 10),
+"times": PackedFloat32Array(0, 8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]

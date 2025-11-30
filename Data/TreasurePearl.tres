@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dsgy5p1mqkdk8" path="res://Scripts/Resources/Treasure.gd" id="1_defxq"]
 [ext_resource type="PackedScene" uid="uid://csrjrtmfmhn8d" path="res://Assets/Treasures/Pearl/PearlModel.tscn" id="2_defxq"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_lllhj"]
-radius = 0.13
+[sub_resource type="BoxShape3D" id="BoxShape3D_defxq"]
+size = Vector3(0.21, 0.21, 0.21)
 
 [resource]
 script = ExtResource("1_defxq")
@@ -12,6 +12,5 @@ name = "Pearl"
 value = 40
 weight = 0.8
 visual_scene = ExtResource("2_defxq")
-hitbox_shape = SubResource("SphereShape3D_lllhj")
-position_offset = 0.05
-metadata/LockedRotation = true
+hitbox_shape = SubResource("BoxShape3D_defxq")
+position_offset = 0.03

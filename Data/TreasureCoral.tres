@@ -13,4 +13,4 @@ value = 7
 weight = 0.15
 visual_scene = ExtResource("2_ujyc8")
 hitbox_shape = SubResource("BoxShape3D_ujyc8")
-position_offset = 0.045
+position_offset = 0.035

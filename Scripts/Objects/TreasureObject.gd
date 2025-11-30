@@ -21,10 +21,7 @@ func _ready() -> void:
 	mass = treasure.weight
 	hitbox.shape = treasure.hitbox_shape
 	
-	if treasure.has_meta("LockedRotation"):
-		lock_rotation = treasure.get_meta("LockedRotation")
-		
-	GameMaster.treasure_object_destroyed.connect(reactivate_physics)
+	SignalBus.treasure_object_destroyed.connect(reactivate_physics)
 
 func allow_pick_up():
 	can_be_picked_up = true

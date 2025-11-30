@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b4mttbqndh66d"]
+
+[ext_resource type="Texture2D" uid="uid://cgtwl6rlcuvob" path="res://Assets/Environment/FencePieces/fencetype1_fence1_tex.png" id="1_pwr2v"]
+
+[resource]
+resource_name = "fence1_mat"
+diffuse_mode = 1
+albedo_texture = ExtResource("1_pwr2v")

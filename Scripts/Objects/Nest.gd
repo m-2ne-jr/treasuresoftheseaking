@@ -9,7 +9,7 @@ func _on_nest_object_entered(body: Node3D) -> void:
 	GameMaster.current_points += body.treasure.value
 	play_animation()
 	body.queue_free()
-	GameMaster.treasure_object_destroyed.emit()
+	SignalBus.treasure_object_destroyed.emit()
 
 func play_animation():
 	animation_player.stop()

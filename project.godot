@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameMaster="*res://Scripts/GameMaster.gd"
+SignalBus="*res://Scripts/SignalBus.gd"
 
 [display]
 
@@ -106,3 +107,9 @@ drop_treasure={
 common/physics_ticks_per_second=120
 common/max_physics_steps_per_frame=32
 3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+shading/overrides/force_lambert_over_burley=true
+anti_aliasing/quality/use_debanding=true

@@ -12,21 +12,22 @@ var base_speed: float = 5.0
 var max_speed: float
 var current_speed: float
 
-var can_move: bool = true
+var can_act: bool = true
 
 const ACCELERATION: float = 50
 
 signal treasure_drop_requested(speed: float)
 
 func _ready() -> void:
-	GameMaster.player_respawned.connect(on_player_respawned)
-	GameMaster.player_ready.connect(on_player_ready)
+	SignalBus.treasure_list_changed.connect(_on_treasure_list_changed)
+	SignalBus.player_respawned.connect(on_player_respawned)
+	SignalBus.player_ready.connect(on_player_ready)
+	
 	max_speed = base_speed
 
 func _physics_process(delta: float) -> void:
-		
 	var input_dir := Vector2.ZERO
-	if can_move:
+	if can_act:
 		input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
 	var right = cam_pivot.global_basis.x
@@ -57,6 +58,8 @@ func rotate_skin_to_direction(dir: Vector2):
 		skin.global_rotation.y = lerp_angle(skin.global_rotation.y, new_rotation, 0.25)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if !can_act:
+		return
 	if event.is_action_released("drop_treasure"):
 		treasure_drop_requested.emit(current_speed)
 	
@@ -68,7 +71,7 @@ func get_speed_modifier(treasure_list: Array[Treasure]) -> float:
 	var total_mod: float = 1
 	
 	for treasure: Treasure in treasure_list:
-		total_mod *= 1 - (0.2 * log(treasure.weight + 1))
+		total_mod *= 1 - (0.1 * log(treasure.weight + 1))
 	print_debug(total_mod)
 	return total_mod
 
@@ -82,7 +85,7 @@ func die():
 	print_debug("Died.")
 	hitbox_area.shape_owner_set_disabled(hitbox_area.get_index(), true)
 	animator.set_active(false)
-	can_move = false
+	can_act = false
 	
 	ragdoll.reparent_to_ragdoll(skin)
 	ragdoll.activate_ragdoll()
@@ -96,4 +99,4 @@ func on_player_respawned():
 
 func on_player_ready():
 	hitbox_area.shape_owner_set_disabled(hitbox_area.get_index(), false)
-	can_move = true
+	can_act = true

@@ -18,6 +18,4 @@ func get_instance() -> Treasure:
 	new_treasure.visual_scene = visual_scene
 	new_treasure.hitbox_shape = hitbox_shape
 	new_treasure.position_offset = position_offset
-	if has_meta("LockedRotation"):
-		new_treasure.set_meta("LockedRotation", true)
 	return new_treasure

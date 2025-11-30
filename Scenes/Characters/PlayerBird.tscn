@@ -193,7 +193,7 @@ node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"BodyTransition", &"
 radius = 0.075
 
 [node name="Player" type="CharacterBody3D"]
-collision_mask = 270
+collision_mask = 266
 script = ExtResource("1_3c1wb")
 
 [node name="Hitbox" type="Node3D" parent="."]
@@ -251,7 +251,7 @@ bones/3/parent = 2
 bones/3/rest = Transform3D(0.675725, -0.737154, -8.47706e-08, 0.737154, 0.675725, 2.49981e-07, -1.26993e-07, -2.31407e-07, 1, 3.96204e-17, 0.00767046, 2.81893e-18)
 bones/3/enabled = true
 bones/3/position = Vector3(-1.18157e-09, 0.00767045, -1.18349e-10)
-bones/3/rotation = Quaternion(-1.3147668e-07, 1.1531659e-08, 0.40266314, 0.9153483)
+bones/3/rotation = Quaternion(-1.3147668e-07, 1.15316565e-08, 0.40266314, 0.9153483)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Body"
 bones/4/parent = 0
@@ -272,7 +272,7 @@ bones/6/parent = 0
 bones/6/rest = Transform3D(-3.57628e-07, -1.95578e-08, 1, 0.0247225, -0.999694, -9.31323e-09, 0.999694, 0.0247225, 4.76837e-07, -0.00186731, 0.000764524, 7.46224e-05)
 bones/6/enabled = true
 bones/6/position = Vector3(-0.001867305, 0.0007645237, 7.462236e-05)
-bones/6/rotation = Quaternion(0.70705265, 0.008740591, 0.7070528, 0.008742217)
+bones/6/rotation = Quaternion(0.70705265, 0.008740593, 0.70705295, 0.008742217)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Calf.R"
 bones/7/parent = 6
@@ -286,7 +286,7 @@ bones/8/parent = 7
 bones/8/rest = Transform3D(0.675725, 0.737154, 8.50122e-08, -0.737154, 0.675725, 2.49671e-07, 1.26601e-07, -2.31376e-07, 1, -3.96584e-17, 0.00767045, 0)
 bones/8/enabled = true
 bones/8/position = Vector3(4.27771e-10, 0.00767045, 3.4351e-11)
-bones/8/rotation = Quaternion(-1.3138377e-07, -1.135882e-08, -0.40266317, 0.91534823)
+bones/8/rotation = Quaternion(-1.3138377e-07, -1.1358824e-08, -0.4026632, 0.91534823)
 bones/8/scale = Vector3(1, 1, 1)
 
 [node name="Legs" type="MeshInstance3D" parent="Skin/Armature/Skeleton3D"]
@@ -342,7 +342,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.159, 0)
 [node name="CarrierComponent" parent="." node_paths=PackedStringArray("carry_containers") instance=ExtResource("5_2pmok")]
 unique_name_in_owner = true
 transform = Transform3D(1, -5.151435e-14, 2.842171e-13, 5.3290705e-15, 1, 0, -1.7053026e-13, 0, 1, -2.220446e-16, -0.01468572, 1.9790605e-09)
-carry_limit = 9
 carry_containers = [NodePath("BodyAttachment/CarryContainer2"), NodePath("BodyAttachment/CarryContainer3"), NodePath("HeadAttachment/CarryContainer")]
 carry_point = ExtResource("6_vcdi6")
 
@@ -391,8 +390,4 @@ transform = Transform3D(0.19999999, -1.9644963e-08, 4.367848e-08, -6.320672e-09,
 [connection signal="treasure_picked_up" from="PickupComponent" to="CarrierComponent" method="_on_treasure_picked_up"]
 [connection signal="carry_limit_reached" from="CarrierComponent" to="." method="_on_carry_limit_reached"]
 [connection signal="treasure_drop_successful" from="CarrierComponent" to="Skin/AnimatorComponent" method="on_treasure_drop_success"]
-[connection signal="treasure_list_changed" from="CarrierComponent" to="." method="_on_treasure_list_changed"]
-[connection signal="treasure_list_changed" from="CarrierComponent" to="CarrierComponent" method="set_point_positions"]
-[connection signal="treasure_list_changed" from="CarrierComponent" to="CarrierComponent" method="check_carry_limit"]
-[connection signal="treasure_pickup_successful" from="CarrierComponent" to="Skin/AnimatorComponent" method="on_treasure_pickup_success"]
 [connection signal="treasure_pickup_ready" from="CarrierComponent/RootAttachment/TreasureSpawner" to="PickupComponent" method="check_for_pickups"]

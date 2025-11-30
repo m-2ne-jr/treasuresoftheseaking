@@ -3,16 +3,14 @@
 [ext_resource type="Script" uid="uid://dsgy5p1mqkdk8" path="res://Scripts/Resources/Treasure.gd" id="1_5kqmt"]
 [ext_resource type="PackedScene" uid="uid://cqlvw82fvpvyw" path="res://Assets/Treasures/Sinker/SinkerModel.tscn" id="2_5kqmt"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5kqmt"]
-radius = 0.095
-height = 0.305
+[sub_resource type="BoxShape3D" id="BoxShape3D_5kqmt"]
+size = Vector3(0.19921875, 0.28027344, 0.20996094)
 
 [resource]
 script = ExtResource("1_5kqmt")
 name = "Sinker"
-value = 60
-weight = 12.0
+value = 70
+weight = 16.0
 visual_scene = ExtResource("2_5kqmt")
-hitbox_shape = SubResource("CapsuleShape3D_5kqmt")
-position_offset = 0.065
-metadata/LockedRotation = true
+hitbox_shape = SubResource("BoxShape3D_5kqmt")
+position_offset = 0.035

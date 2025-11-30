@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b8bv8ncw3u31i"]
+
+[ext_resource type="Texture2D" uid="uid://cor7u7ve1af5h" path="res://Assets/Treasures/Shell/shell_shell_tex.png" id="1_hjpfw"]
+
+[resource]
+resource_name = "shell_mat"
+cull_mode = 2
+albedo_texture = ExtResource("1_hjpfw")
+roughness = 0.9

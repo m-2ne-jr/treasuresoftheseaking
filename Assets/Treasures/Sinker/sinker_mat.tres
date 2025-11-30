@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://0aw7s2faxsfo"]
+
+[ext_resource type="Texture2D" uid="uid://hjq6g6vc24dl" path="res://Assets/Treasures/Sinker/sinker_sinker_tex.png" id="1_3mv26"]
+
+[resource]
+resource_name = "sinker_mat"
+diffuse_mode = 1
+albedo_texture = ExtResource("1_3mv26")
+metallic = 0.8503937
+metallic_specular = 1.0
+roughness = 0.70472443

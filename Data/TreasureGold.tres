@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://dsgy5p1mqkdk8" path="res://Scripts/Resources/Treasure.gd" id="1_28stj"]
 [ext_resource type="PackedScene" uid="uid://cocwkl2uucula" path="res://Assets/Treasures/Gold/GoldModel.tscn" id="2_28stj"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ujyc8"]
-size = Vector3(0.3645, 0.1115, 0.1855)
+[sub_resource type="BoxShape3D" id="BoxShape3D_28stj"]
+size = Vector3(0.30297852, 0.091796875, 0.14257813)
 
 [resource]
 script = ExtResource("1_28stj")
 name = "Gold"
-value = 70
+value = 90
 weight = 4.0
 visual_scene = ExtResource("2_28stj")
-hitbox_shape = SubResource("BoxShape3D_ujyc8")
+hitbox_shape = SubResource("BoxShape3D_28stj")
 position_offset = 0.045

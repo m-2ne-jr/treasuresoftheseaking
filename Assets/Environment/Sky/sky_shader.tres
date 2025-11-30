@@ -74,6 +74,8 @@ input_name = "sky_coords"
 
 [resource]
 code = "shader_type sky;
+render_mode use_debanding;
+
 uniform vec4 HorizonColor : source_color;
 uniform vec4 SkyColor : source_color;
 uniform sampler2D tex_sky_10;
@@ -164,7 +166,7 @@ mode = 3
 flags/use_half_res_pass = false
 flags/use_quarter_res_pass = false
 flags/disable_fog = false
-flags/use_debanding = false
+flags/use_debanding = true
 nodes/sky/0/position = Vector2(640, 260)
 nodes/sky/2/node = SubResource("VisualShaderNodeColorParameter_t2fhw")
 nodes/sky/2/position = Vector2(-580, -380)

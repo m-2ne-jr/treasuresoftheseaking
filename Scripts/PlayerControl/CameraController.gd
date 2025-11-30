@@ -11,8 +11,8 @@ const CAMERA_MARGIN = 0.01
 func _ready() -> void:
 	position = get_parent().position + Vector3(0, cam_offset, 0)
 	
-	GameMaster.player_respawned.connect(toggle_camera_movement.bind(false))
-	GameMaster.player_ready.connect(toggle_camera_movement.bind(true))
+	SignalBus.player_respawned.connect(toggle_camera_movement.bind(false))
+	SignalBus.player_ready.connect(toggle_camera_movement.bind(true))
 	toggle_camera_movement.call_deferred(true)
 	
 func _physics_process(_delta: float) -> void:

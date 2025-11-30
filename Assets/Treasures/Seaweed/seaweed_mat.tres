@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://fi7wkgua4vdk"]
+
+[ext_resource type="Texture2D" uid="uid://d3fhu2tw7nvsl" path="res://Assets/Treasures/Seaweed/seaweed_seaweed_tex.png" id="1_w2q78"]
+
+[resource]
+resource_name = "seaweed_mat"
+cull_mode = 2
+diffuse_mode = 1
+albedo_texture = ExtResource("1_w2q78")

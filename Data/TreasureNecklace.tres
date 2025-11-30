@@ -3,15 +3,14 @@
 [ext_resource type="Script" uid="uid://dsgy5p1mqkdk8" path="res://Scripts/Resources/Treasure.gd" id="1_a6pxm"]
 [ext_resource type="PackedScene" uid="uid://crtqjyg1ljtaa" path="res://Assets/Treasures/Necklace/NecklaceModel.tscn" id="2_a6pxm"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_a6pxm"]
-height = 0.067
-radius = 0.267
+[sub_resource type="BoxShape3D" id="BoxShape3D_a6pxm"]
+size = Vector3(0.43188477, 0.040039063, 0.49975586)
 
 [resource]
 script = ExtResource("1_a6pxm")
 name = "Necklace"
 value = 50
-weight = 1.2
+weight = 0.65
 visual_scene = ExtResource("2_a6pxm")
-hitbox_shape = SubResource("CylinderShape3D_a6pxm")
-position_offset = 0.075
+hitbox_shape = SubResource("BoxShape3D_a6pxm")
+position_offset = 0.055

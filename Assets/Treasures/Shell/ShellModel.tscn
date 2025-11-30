@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bogyqci8jelnd"]
+[gd_scene load_steps=3 format=3 uid="uid://bogyqci8jelnd"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_eiwtw"]
-left_to_right = 0.2
-size = Vector3(0.4325, 0.1535, 0.3435)
+[ext_resource type="PackedScene" uid="uid://ddspvatwtxfgc" path="res://Assets/Treasures/Shell/shell.glb" id="1_xm8qt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4hcwj"]
+size = Vector3(0.28125, 0.07519531, 0.31054688)
 
 [node name="Shell" type="Node3D"]
 
-[node name="ShellModel" type="MeshInstance3D" parent="."]
-mesh = SubResource("PrismMesh_eiwtw")
+[node name="shell" parent="." instance=ExtResource("1_xm8qt")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4hcwj")

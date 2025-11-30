@@ -2,7 +2,6 @@ extends Node3D
 
 @onready var treasure_spawner: TreasureSpawner = %TreasureSpawner
 
-@export_range(0, 20) var carry_limit: int = 9
 @export var carry_containers: Array[Node3D]
 @export var carry_point: PackedScene
 
@@ -14,21 +13,24 @@ var current_held_score: int:
 
 var active_treasures: Dictionary[Treasure, CarryPoint] = {}
 
-signal treasure_pickup_successful
 signal treasure_drop_successful
-signal treasure_list_changed(treasure_list: Array[Treasure])
 signal carry_limit_reached(is_maxed: bool)
 
+func _ready() -> void:
+	SignalBus.treasure_list_changed.connect(set_point_positions)
+	SignalBus.treasure_list_changed.connect(check_carry_limit)
+	
 func _on_treasure_picked_up(treasure_object: TreasureObject) -> void:
-	if active_treasures.size() >= carry_limit:
+	if active_treasures.size() >= GameMaster.carry_limit:
+		SignalBus.treasure_acquired.emit(false)
 		return
 	
 	var treasure = treasure_object.treasure.get_instance()
 	treasure_object.queue_free()
 	await treasure_object.tree_exited
-	GameMaster.treasure_object_destroyed.emit()
+	SignalBus.treasure_object_destroyed.emit()
 	add_treasure_to_list(treasure)
-	treasure_pickup_successful.emit()
+	SignalBus.treasure_acquired.emit(true)
 	
 func _on_nest_entered(area: Area3D) -> void:
 	if active_treasures.is_empty():
@@ -61,14 +63,18 @@ func add_treasure_to_list(treasure: Treasure):
 	container.add_child(point)
 	active_treasures.get_or_add(treasure, point)
 	point.set_treasure_to_container(treasure)
-	current_held_score += treasure.value
-	treasure_list_changed.emit(active_treasures.keys())
+	change_held_score(treasure.value)
+	SignalBus.treasure_list_changed.emit(active_treasures.keys())
 
 func remove_treasure_from_list(treasure: Treasure):
 	active_treasures[treasure].queue_free()
 	active_treasures.erase(treasure)
-	current_held_score -= treasure.value
-	treasure_list_changed.emit(active_treasures.keys())
+	change_held_score(-treasure.value)
+	SignalBus.treasure_list_changed.emit(active_treasures.keys())
+
+func change_held_score(value: int):
+	current_held_score += value
+	SignalBus.held_score_changed.emit(current_held_score)
 
 func set_point_positions(_treasure_list: Array[Treasure]):
 	for carry_container: Node3D in carry_containers:
@@ -103,5 +109,5 @@ func get_least_occupied_container() -> Node3D:
 	return container
 	
 func check_carry_limit(treasure_list: Array[Treasure]):
-	var is_maxed: bool = treasure_list.size() >= carry_limit
+	var is_maxed: bool = treasure_list.size() >= GameMaster.carry_limit
 	carry_limit_reached.emit(is_maxed)

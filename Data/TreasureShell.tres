@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dsgy5p1mqkdk8" path="res://Scripts/Resources/Treasure.gd" id="1_eh0xb"]
 [ext_resource type="PackedScene" uid="uid://bogyqci8jelnd" path="res://Assets/Treasures/Shell/ShellModel.tscn" id="2_eh0xb"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_h6suw"]
-size = Vector3(0.4325, 0.1535, 0.3435)
+[sub_resource type="BoxShape3D" id="BoxShape3D_eh0xb"]
+size = Vector3(0.28125, 0.07519531, 0.31054688)
 
 [resource]
 script = ExtResource("1_eh0xb")
@@ -12,5 +12,5 @@ name = "Shell"
 value = 3
 weight = 0.05
 visual_scene = ExtResource("2_eh0xb")
-hitbox_shape = SubResource("BoxShape3D_h6suw")
-position_offset = 0.05
+hitbox_shape = SubResource("BoxShape3D_eh0xb")
+position_offset = 0.035

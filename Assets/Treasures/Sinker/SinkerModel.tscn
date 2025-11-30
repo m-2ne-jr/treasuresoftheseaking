@@ -1,12 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqlvw82fvpvyw"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_o0jno"]
-radius = 0.095
-height = 0.305
-radial_segments = 8
-rings = 1
+[ext_resource type="PackedScene" uid="uid://dvv6vvui23i08" path="res://Assets/Treasures/Sinker/sinker.glb" id="1_olagl"]
 
 [node name="Sinker" type="Node3D"]
 
-[node name="SinkerModel" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_o0jno")
+[node name="sinker" parent="." instance=ExtResource("1_olagl")]

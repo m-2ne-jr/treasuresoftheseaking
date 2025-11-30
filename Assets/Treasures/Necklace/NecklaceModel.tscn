@@ -1,12 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://crtqjyg1ljtaa"]
 
-[sub_resource type="TorusMesh" id="TorusMesh_5pis6"]
-inner_radius = 0.199
-outer_radius = 0.267
-rings = 5
-ring_segments = 12
+[ext_resource type="PackedScene" uid="uid://cmlqae0ycqxfp" path="res://Assets/Treasures/Necklace/necklace.glb" id="1_743pf"]
 
 [node name="Necklace" type="Node3D"]
 
-[node name="NecklaceModel" type="MeshInstance3D" parent="."]
-mesh = SubResource("TorusMesh_5pis6")
+[node name="necklace" parent="." instance=ExtResource("1_743pf")]

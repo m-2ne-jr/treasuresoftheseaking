@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://chl4u1un0ob5h"
-path="res://.godot/imported/nest.fbx-df2ca3109ebfbf27973437276ed8be21.scn"
+uid="uid://cq5gaci7umnvw"
+path="res://.godot/imported/seaweed.glb-bb6e0bafa48e1ef680c97dfc437eb834.scn"
 
 [deps]
 
-source_file="res://Assets/Environment/Nest/nest.fbx"
-dest_files=["res://.godot/imported/nest.fbx-df2ca3109ebfbf27973437276ed8be21.scn"]
+source_file="res://Assets/Treasures/Seaweed/seaweed.glb"
+dest_files=["res://.godot/imported/seaweed.glb-bb6e0bafa48e1ef680c97dfc437eb834.scn"]
 
 [params]
 
@@ -30,15 +30,21 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+_subresources={
+"materials": {
+"seaweed_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Treasures/Seaweed/seaweed_mat.tres",
+"use_external/path": "uid://fi7wkgua4vdk"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

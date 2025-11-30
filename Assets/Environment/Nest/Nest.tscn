@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dr67jwlka4f4y"]
 
 [ext_resource type="Script" uid="uid://ckp2iufsbdaf7" path="res://Scripts/Objects/Nest.gd" id="1_0df7p"]
+[ext_resource type="PackedScene" uid="uid://bpy0dco06od7" path="res://Assets/Environment/Nest/nest.glb" id="1_cvj4b"]
 [ext_resource type="PackedScene" uid="uid://pagio2gy4uel" path="res://Assets/Environment/Rocks/RockType1.tscn" id="2_cvj4b"]
-[ext_resource type="PackedScene" uid="uid://chl4u1un0ob5h" path="res://Assets/Environment/Nest/nest.fbx" id="2_qn0wt"]
 [ext_resource type="PackedScene" uid="uid://bry8gdfs0h4th" path="res://Assets/Environment/Rocks/RockType2.tscn" id="3_3ee5i"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jw32o"]
@@ -33,7 +33,7 @@ transform = Transform3D(0.6598159, 0, 0, 0, 0.6598159, 0, 0, 0, 0.6598159, 0, 0,
 
 [node name="Geometry" type="Node3D" parent="."]
 
-[node name="nest" parent="Geometry" instance=ExtResource("2_qn0wt")]
+[node name="nest" parent="Geometry" instance=ExtResource("1_cvj4b")]
 
 [node name="Rock01" parent="Geometry" instance=ExtResource("2_cvj4b")]
 transform = Transform3D(0.13714187, 0, 0.06350851, 0, 0.15113313, 0, -0.06350851, 0, 0.13714187, -0.6585566, 0, 0.42744538)

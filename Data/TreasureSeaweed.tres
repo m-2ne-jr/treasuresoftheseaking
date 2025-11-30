@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dfqrcdg838raq" path="res://Assets/Treasures/Seaweed/SeaweedModel.tscn" id="2_h6suw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h6suw"]
-size = Vector3(0.171, 0.1, 0.7485)
+margin = 0.08
+size = Vector3(0.2861, 0.2, 1)
 
 [resource]
 script = ExtResource("1_h6suw")
@@ -13,4 +14,4 @@ value = 1
 weight = 0.01
 visual_scene = ExtResource("2_h6suw")
 hitbox_shape = SubResource("BoxShape3D_h6suw")
-position_offset = 0.05
+position_offset = 0.055

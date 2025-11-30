@@ -8,13 +8,15 @@ var player_spawn: Marker3D
 var player_scene: PackedScene
 var player: PlayerController
 
+var carry_limit := 10
+
 var current_points: int:
 	set(value):
 		current_points = value
 		if current_points >= goal_levels[current_goal].score:
 			current_points -= goal_levels[current_goal].score
 			increase_goal_level()
-		score_changed.emit(current_points)
+		SignalBus.score_changed.emit(current_points)
 
 var current_goal: int = 1
 var goal_levels: Dictionary[int, GoalLevel] = {
@@ -28,15 +30,6 @@ var goal_levels: Dictionary[int, GoalLevel] = {
 var goal_timer: Timer = Timer.new()
 
 var current_wave: int = 0
-
-signal score_changed(value: int)
-signal goal_level_changed
-signal player_died
-signal player_respawned
-signal player_ready
-
-@warning_ignore("unused_signal")
-signal treasure_object_destroyed
 
 func _ready() -> void:
 	player_spawn = get_node("/root/World/PlayerSpawn")
@@ -56,15 +49,15 @@ func _ready() -> void:
 func increase_goal_level():
 	current_goal += 1
 	goal_timer.start(goal_timer.time_left + goal_levels[current_goal].time)
-	goal_level_changed.emit()
+	SignalBus.goal_level_changed.emit()
 	current_points = current_points
 
 func on_player_died():
-	player_died.emit()
+	SignalBus.player_died.emit()
 	
 func respawn_player():
 	player.global_position = player_spawn.global_position
-	player_respawned.emit()
+	SignalBus.player_respawned.emit()
 
 func on_death_anim_finished():
-	player_ready.emit()
+	SignalBus.player_ready.emit()

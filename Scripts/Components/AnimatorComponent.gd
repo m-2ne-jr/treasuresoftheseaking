@@ -3,6 +3,9 @@ extends Node
 
 @onready var anim_tree: AnimationTree = %AnimationTree
 
+func _ready() -> void:
+	SignalBus.treasure_acquired.connect(on_treasure_pickup_success)
+
 func set_movement_state(move_dir: Vector3):
 	anim_tree.set("parameters/LegStateMachine/conditions/idle", move_dir == Vector3.ZERO)
 	anim_tree.set("parameters/LegStateMachine/conditions/moving", move_dir != Vector3.ZERO)
@@ -22,7 +25,9 @@ func set_movement_state(move_dir: Vector3):
 func set_active(state := true):
 	anim_tree.active = state
 
-func on_treasure_pickup_success():
+func on_treasure_pickup_success(was_successful: bool):
+	if !was_successful:
+		return
 	set_body_transition_state("pickup")
 
 func on_treasure_drop_success():

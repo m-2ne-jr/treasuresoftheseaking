@@ -8,7 +8,6 @@ height = 0.535239
 
 [node name="CarrierComponent" type="Node3D"]
 script = ExtResource("1_53ub0")
-carry_limit = null
 
 [node name="NestDropArea" type="Area3D" parent="."]
 collision_mask = 16

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dlw48tarc4q3y"]
+
+[ext_resource type="Texture2D" uid="uid://m1ikwndtgs0r" path="res://Assets/Treasures/Gold/gold_gold_tex.png" id="1_c10kg"]
+
+[resource]
+resource_name = "gold_mat"
+diffuse_mode = 1
+albedo_color = Color(1.353256, 1.353256, 1.353256, 1)
+albedo_texture = ExtResource("1_c10kg")
+metallic = 0.75
+metallic_specular = 1.0
+roughness = 0.35
+texture_filter = 2
+disable_receive_shadows = true
