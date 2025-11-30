@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bq8sgefedhdhb"]
+
+[ext_resource type="Texture2D" uid="uid://bpiyj0c4ymmnh" path="res://Assets/Bird/sandpiper_bird_body_tex.png" id="1_nwou5"]
+
+[resource]
+resource_name = "bird_body_mat"
+diffuse_mode = 1
+specular_mode = 1
+albedo_texture = ExtResource("1_nwou5")

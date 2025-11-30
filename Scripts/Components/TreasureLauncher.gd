@@ -30,10 +30,11 @@ func setup_treasure_object(treasure: Treasure) -> TreasureObject:
 func launch_treasure_object(treasure_object: TreasureObject, speed: float):
 	var new_angle_min = deg_to_rad(-spawn_arc_width * 0.5)
 	var new_angle_max = deg_to_rad(spawn_arc_width * 0.5)
-	var direction = global_basis.y.rotated(global_basis.z, randf_range(new_angle_min, new_angle_max))
+	var direction = global_basis.y.rotated(global_basis.z.normalized(), randf_range(new_angle_min, new_angle_max))
 	var force = (direction * speed) + (direction * spawn_force)
 	
-	treasure_object.global_transform = global_transform
+	treasure_object.global_position = global_position
+	treasure_object.global_rotation = global_rotation
 	treasure_object.apply_central_impulse(force * treasure_object.mass)
 	treasure_object.global_rotation.x = randf_range(-1, 1)
 	treasure_object.apply_torque_impulse(global_basis.x * 1.5)
