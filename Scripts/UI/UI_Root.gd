@@ -77,8 +77,15 @@ func fade_screen_in():
 func on_game_over():
 	screen_animator.play("game_over")
 
+func play_game_over_bgm():
+	SoundManager.play_bgm(SoundManager.music_library["bgm_game_over"])
+	
 func on_game_complete():
 	screen_animator.play("game_complete")
+
+func play_game_complete_bgm():
+	SoundManager.play_bgm(SoundManager.music_library["bgm_game_complete"])
+	
 
 func _on_game_over_restart_button_pressed() -> void:
 	GameMaster.restart_game()

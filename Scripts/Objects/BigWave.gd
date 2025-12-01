@@ -10,7 +10,6 @@ var next_wave_length: WaveLength
 func _ready() -> void:
 	SignalBus.game_over.connect(pause_player)
 	SignalBus.game_complete.connect(pause_player)
-	SignalBus.game_restarted.connect(reset_player)
 	await SignalBus.player_ready
 	request_wave_anim_length(depths[WaveLength.WAVE_SHORT].animation_name)
 
@@ -44,6 +43,3 @@ func go_to_next_wave():
 
 func pause_player():
 	anim_player.pause.call_deferred()
-
-func reset_player():
-	anim_player.stop.call_deferred()

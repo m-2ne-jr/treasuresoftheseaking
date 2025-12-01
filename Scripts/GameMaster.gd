@@ -85,7 +85,6 @@ func increase_goal_level():
 
 func on_player_died():
 	is_player_respawning = true
-	SoundManager.play_sound(SoundManager.sound_library["sfx_player_die"])
 	SignalBus.player_died.emit()
 	
 func respawn_player():

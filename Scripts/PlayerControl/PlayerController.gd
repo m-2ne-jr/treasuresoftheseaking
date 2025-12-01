@@ -93,6 +93,8 @@ func handle_player_knockout():
 	animator.set_active(false)
 	can_act = false
 	
+	SoundManager.play_sound(SoundManager.sound_library["sfx_player_die"])
+	
 	ragdoll.reparent_to_ragdoll(skin)
 	ragdoll.activate_ragdoll()
 	

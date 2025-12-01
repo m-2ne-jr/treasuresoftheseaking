@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://c286l4k7q04vh" path="res://Assets/Audio/SFX/player_footstep.ogg" id="2_wvhc3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1ag1j"]
-radius = 0.1
+radius = 0.3
 
 [node name="FootstepEmitter" type="Area3D"]
 collision_mask = 8
@@ -16,8 +16,7 @@ maximum_pitch = 1.05
 [node name="FootstepSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_wvhc3")
-volume_db = -32.0
-max_polyphony = 12
+volume_db = -36.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_1ag1j")
