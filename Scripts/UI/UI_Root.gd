@@ -23,7 +23,7 @@ func _ready() -> void:
 	SignalBus.score_changed.connect(update_score)
 	SignalBus.held_score_changed.connect(update_current_score)
 	SignalBus.carry_count_updated.connect(update_carry_count)
-	SignalBus.treasure_acquired.connect(on_treasure_get_success)
+	SignalBus.treasure_acquired.connect(on_treasure_get_state)
 	
 	SignalBus.player_died.connect(fade_screen_out)
 	SignalBus.player_respawned.connect(fade_screen_in)
@@ -54,7 +54,7 @@ func update_current_score(value: int):
 func update_carry_count(amount: int):
 	carry_count_label.text = "%s / %s" % [amount, GameMaster.carry_limit]
 
-func on_treasure_get_success(was_successful: bool):
+func on_treasure_get_state(was_successful: bool):
 	if was_successful:
 		return
 	carry_label_animator.play("flash_carry_label")

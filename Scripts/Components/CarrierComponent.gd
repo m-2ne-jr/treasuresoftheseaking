@@ -24,13 +24,21 @@ func _ready() -> void:
 	
 func _on_treasure_picked_up(treasure_object: TreasureObject) -> void:
 	if active_treasures.size() >= GameMaster.carry_limit:
+		var max_carry_sfx := SoundManager.sound_library["sfx_treasure_max_capacity"]
+		SoundManager.play_sound(max_carry_sfx)
+		
 		SignalBus.treasure_acquired.emit(false)
 		return
 	
 	var treasure = treasure_object.treasure.get_instance()
+	
+	var pickup_sfx := SoundManager.sound_library["sfx_treasure_pickup"]
+	SoundManager.play_sound(pickup_sfx)
+	
 	treasure_object.queue_free()
 	await treasure_object.tree_exited
 	SignalBus.treasure_object_destroyed.emit()
+	
 	add_treasure_to_list(treasure)
 	SignalBus.treasure_acquired.emit(true)
 	
@@ -42,6 +50,14 @@ func _on_nest_entered(area: Area3D) -> void:
 	
 	var nest = area as Nest
 	nest.play_animation()
+	
+	var sfx: AudioStream
+	if active_treasures.size() <= 1:
+		sfx = SoundManager.sound_library["sfx_treasure_bank_single"]
+	else:
+		sfx = SoundManager.sound_library["sfx_treasure_bank_all"]
+	SoundManager.play_sound(sfx)
+	
 	GameMaster.current_points += current_held_score
 	
 	for i in range(active_treasures.size(), 0, -1):
@@ -50,7 +66,9 @@ func _on_nest_entered(area: Area3D) -> void:
 func on_treasure_drop_requested(current_speed: float):
 	if active_treasures.is_empty():
 		return
+	
 	drop_treasure(current_speed)
+	SoundManager.play_sound(SoundManager.sound_library["sfx_treasure_drop"])
 	treasure_drop_successful.emit()
 
 func drop_treasure(current_speed: float):

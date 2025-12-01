@@ -28,6 +28,8 @@ signal player_ready
 signal treasure_acquired(successful: bool)
 @warning_ignore("unused_signal")
 signal treasure_object_destroyed
+@warning_ignore("unused_signal")
+signal treasures_being_spawned(state: bool)
 
 func _ready() -> void:
 	treasure_list_changed.connect(on_treasure_list_changed)

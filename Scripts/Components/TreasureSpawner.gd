@@ -10,6 +10,8 @@ func _on_spawner_exited(_area_rid: RID, area: Area3D, area_shape_index: int, _lo
 	var shape: BoxShape3D = area.shape_owner_get_shape(shape_owner, area_shape_index) as BoxShape3D
 	
 	var treasures_to_spawn = get_treasure_spawn_count(area)
+	
+	SignalBus.treasures_being_spawned.emit(true)
 	for x in range(treasures_to_spawn):
 		var treasure_object = get_treasure_to_spawn()
 		var spawn_position: Vector3 = get_spawn_position(area, shape)
@@ -22,6 +24,7 @@ func _on_spawner_exited(_area_rid: RID, area: Area3D, area_shape_index: int, _lo
 		await treasure_object.tree_entered
 		treasure_object.global_position = spawn_position
 		treasure_object.global_rotation.y = randf_range(-1, 1)
+	SignalBus.treasures_being_spawned.emit(false)
 
 func get_treasure_spawn_count(area: Area3D) -> int:
 	var treasure_spawn_min: int = area.get_meta("MinTreasureSpawn")
@@ -66,6 +69,8 @@ func get_treasure_from_area(area: Node3D) -> Treasure:
 	return treasure
 
 func is_able_to_spawn(area: Area3D) -> bool:
+	if !GameMaster.is_game_time_active:
+		return false
 	if GameMaster.wave_state == GameMaster.WaveState.WAVE_OUT:
 		return false
 	if !area.has_meta("Depth"):

@@ -295,7 +295,7 @@ metadata/_custom_type_script = "uid://c05qqlox5s7eg"
 [sub_resource type="Resource" id="Resource_5psol"]
 script = ExtResource("11_erwvk")
 treasure = ExtResource("12_erwvk")
-weight = 0.5
+weight = 0.4
 metadata/_custom_type_script = "uid://c05qqlox5s7eg"
 
 [sub_resource type="Resource" id="Resource_m4llh"]
@@ -307,7 +307,7 @@ metadata/_custom_type_script = "uid://c05qqlox5s7eg"
 [sub_resource type="Resource" id="Resource_btbly"]
 script = ExtResource("11_erwvk")
 treasure = ExtResource("8_grg3l")
-weight = 0.1
+weight = 0.2
 metadata/_custom_type_script = "uid://c05qqlox5s7eg"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lac6x"]

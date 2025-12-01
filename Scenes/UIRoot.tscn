@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://j2gn0yxv0umb"]
+[gd_scene load_steps=17 format=3 uid="uid://j2gn0yxv0umb"]
 
 [ext_resource type="Script" uid="uid://bcvwsd8bth5dk" path="res://Scripts/UI/UI_Root.gd" id="1_v0xy3"]
 [ext_resource type="LabelSettings" uid="uid://2ye0twb5n8fe" path="res://Assets/UI/TextLabelSettings.tres" id="2_tbn6g"]
@@ -44,6 +44,12 @@ _data = {
 font_size = 36
 outline_size = 8
 outline_color = Color(0, 0.022666646, 0.17, 1)
+
+[sub_resource type="InputEventAction" id="InputEventAction_tbn6g"]
+action = &"confirm"
+
+[sub_resource type="Shortcut" id="Shortcut_qc66k"]
+events = [SubResource("InputEventAction_tbn6g")]
 
 [sub_resource type="Animation" id="Animation_qc66k"]
 length = 0.001
@@ -842,8 +848,14 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
 theme_override_font_sizes/font_size = 20
 disabled = true
+shortcut = SubResource("Shortcut_qc66k")
+shortcut_in_tooltip = false
 text = "Retry
 "
 
@@ -908,8 +920,14 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
 theme_override_font_sizes/font_size = 20
 disabled = true
+shortcut = SubResource("Shortcut_qc66k")
+shortcut_in_tooltip = false
 text = "Retry
 "
 
