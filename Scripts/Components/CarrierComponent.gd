@@ -20,6 +20,7 @@ func _ready() -> void:
 	SignalBus.treasure_list_changed.connect(set_point_positions)
 	SignalBus.treasure_list_changed.connect(check_carry_limit)
 	SignalBus.player_died.connect(drop_all_treasures)
+	SignalBus.game_over.connect(drop_all_treasures)
 	
 func _on_treasure_picked_up(treasure_object: TreasureObject) -> void:
 	if active_treasures.size() >= GameMaster.carry_limit:

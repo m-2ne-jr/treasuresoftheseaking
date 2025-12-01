@@ -231,7 +231,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(8.9406956e-07, -2.4214378e-08, -1.0000002, -0.024722483, -0.99969405, 2.103363e-09, -0.9996943, 0.024722477, -8.943952e-07, 0.18673052, 0.076452374, 0.007462505)
 bones/1/enabled = true
 bones/1/position = Vector3(0.18673049, 0.07645235, 0.0074625034)
-bones/1/rotation = Quaternion(0.7070531, -0.008741391, -0.70705247, 0.008741382)
+bones/1/rotation = Quaternion(0.7070531, -0.008741392, -0.70705247, 0.008741381)
 bones/1/scale = Vector3(0.99999994, 0.9999997, 1.0000002)
 bones/2/name = "Calf.L"
 bones/2/parent = 1
@@ -273,14 +273,14 @@ bones/7/parent = 6
 bones/7/rest = Transform3D(1, -1.1324539e-14, 2.6515877e-08, 1.1448338e-14, 1, -4.668847e-09, -2.651588e-08, 4.6688475e-09, 0.99999994, -1.5670321e-15, 0.6842628, 1.0298098e-08)
 bones/7/enabled = true
 bones/7/position = Vector3(-1.5670321e-15, 0.6842628, 1.0298098e-08)
-bones/7/rotation = Quaternion(2.334424e-09, 1.3257946e-08, 6.2816006e-15, 1)
+bones/7/rotation = Quaternion(2.334424e-09, 1.3257947e-08, 6.2816006e-15, 1)
 bones/7/scale = Vector3(1, 1, 0.99999994)
 bones/8/name = "Foot.R"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.6757247, 0.737154, 8.5012246e-08, -0.737154, 0.6757247, 2.496713e-07, 1.2660134e-07, -2.3137619e-07, 0.99999994, 1.5252903e-15, 0.7670453, 1.4901161e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(1.5252903e-15, 0.7670453, 1.4901161e-08)
-bones/8/rotation = Quaternion(-1.3138376e-07, -1.1358815e-08, -0.40266317, 0.91534823)
+bones/8/rotation = Quaternion(-1.3138374e-07, -1.13588206e-08, -0.40266317, 0.91534823)
 bones/8/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
 
 [node name="Body" type="MeshInstance3D" parent="Skin/Armature/Skeleton3D"]

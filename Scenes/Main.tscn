@@ -1180,7 +1180,7 @@ debug_color = Color(0, 0, 0, 1)
 [node name="Depth3" type="Node3D" parent="TreasureSpawns"]
 
 [node name="TreasureSpawnArea8" type="Area3D" parent="TreasureSpawns/Depth3"]
-transform = Transform3D(0.9999988, -0.0011081346, 0.00095172366, 0.0012305467, 0.99013615, -0.14010432, -0.0007870812, 0.14010534, 0.99013627, -2.4512515, -1.8662764, -2.3562405)
+transform = Transform3D(0.9999988, -0.0011081346, 0.00095172366, 0.0012305467, 0.99013615, -0.14010432, -0.0007870812, 0.14010534, 0.99013627, -2.4512544, -1.863731, -2.3558803)
 collision_layer = 64
 collision_mask = 32
 input_ray_pickable = false
@@ -1195,7 +1195,7 @@ shape = SubResource("BoxShape3D_h1m7h")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="TreasureSpawnArea9" type="Area3D" parent="TreasureSpawns/Depth3"]
-transform = Transform3D(0.99990255, -0.01396218, 0, 0.013822889, 0.9899272, -0.14090122, 0.0019672883, 0.1408875, 0.9900237, 10.769578, -1.9771165, -1.0346762)
+transform = Transform3D(0.99990255, -0.01396218, 0, 0.013822889, 0.9899272, -0.14090122, 0.0019672883, 0.1408875, 0.9900237, 10.768811, -1.9227462, -1.0269382)
 collision_layer = 64
 collision_mask = 32
 input_ray_pickable = false
@@ -1211,7 +1211,7 @@ shape = SubResource("BoxShape3D_vs04g")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="TreasureSpawnArea10" type="Area3D" parent="TreasureSpawns/Depth3"]
-transform = Transform3D(0.99904823, 0.043619387, 0, -0.04337241, 0.9933915, -0.10626407, -0.0046351734, 0.10616293, 0.9943379, -14.0485, -1.8588, -0.4533)
+transform = Transform3D(0.99904823, 0.043619387, 0, -0.04337241, 0.9933915, -0.10626407, -0.0046351734, 0.10616293, 0.9943379, -14.046895, -1.822246, -0.44939348)
 collision_layer = 64
 collision_mask = 32
 input_ray_pickable = false
@@ -1229,7 +1229,7 @@ debug_color = Color(0, 0, 0, 1)
 [node name="Depth4" type="Node3D" parent="TreasureSpawns"]
 
 [node name="TreasureSpawnArea11" type="Area3D" parent="TreasureSpawns/Depth4"]
-transform = Transform3D(0.9997015, 0.024432177, 0, -0.02412467, 0.987119, -0.15815805, -0.003864146, 0.15811084, 0.98741376, -1.7297, -3.0440965, 4.93519)
+transform = Transform3D(0.9997015, 0.024432177, 0, -0.02412467, 0.987119, -0.15815805, -0.003864146, 0.15811084, 0.98741376, -1.7289481, -3.0137208, 4.9400554)
 collision_layer = 64
 collision_mask = 32
 input_ray_pickable = false
@@ -1244,7 +1244,7 @@ shape = SubResource("BoxShape3D_semxg")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="TreasureSpawnArea12" type="Area3D" parent="TreasureSpawns/Depth4"]
-transform = Transform3D(0.9997015, -0.024432177, 0, 0.024151059, 0.98819876, -0.15126081, 0.0036956314, 0.15121566, 0.9884938, 10.649434, -3.1374319, 6.9852195)
+transform = Transform3D(0.9997015, -0.024432177, 0, 0.024151059, 0.98819876, -0.15126081, 0.0036956314, 0.15121566, 0.9884938, 10.647482, -3.05849, 6.997299)
 collision_layer = 64
 collision_mask = 32
 input_ray_pickable = false
@@ -1260,7 +1260,7 @@ shape = SubResource("BoxShape3D_3133c")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="TreasureSpawnArea13" type="Area3D" parent="TreasureSpawns/Depth4"]
-transform = Transform3D(0.99853665, 0.05407881, 0, -0.053652387, 0.9906629, -0.12533322, -0.006777873, 0.12514982, 0.9921146, -14.3119, -2.8715, 7.5277)
+transform = Transform3D(0.99853665, 0.05407881, 0, -0.053652387, 0.9906629, -0.12533322, -0.006777873, 0.12514982, 0.9921146, -14.306919, -2.7802444, 7.5392284)
 collision_layer = 64
 collision_mask = 32
 input_ray_pickable = false
@@ -1278,7 +1278,7 @@ debug_color = Color(0, 0, 0, 1)
 [node name="Depth5" type="Node3D" parent="TreasureSpawns"]
 
 [node name="TreasureSpawnArea14" type="Area3D" parent="TreasureSpawns/Depth5"]
-transform = Transform3D(0.99904823, 0.043619383, 0, -0.04322608, 0.9900399, -0.13398616, -0.0058443956, 0.13385865, 0.990983, -12.580906, -3.5238202, 12.920063)
+transform = Transform3D(0.99904823, 0.043619383, 0, -0.04322608, 0.9900399, -0.13398616, -0.0058443956, 0.13385865, 0.990983, -12.578619, -3.4719028, 12.927082)
 collision_layer = 64
 collision_mask = 32
 input_ray_pickable = false
@@ -1293,7 +1293,7 @@ shape = SubResource("BoxShape3D_4yxf6")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="TreasureSpawnArea15" type="Area3D" parent="TreasureSpawns/Depth5"]
-transform = Transform3D(0.99990255, 0.013962178, 0, -0.013852085, 0.99201787, -0.1253332, -0.0017499252, 0.12532099, 0.9921145, -2.3717837, -3.7178998, 10.464471)
+transform = Transform3D(0.99990255, 0.013962178, 0, -0.013852085, 0.99201787, -0.1253332, -0.0017499252, 0.12532099, 0.9921145, -2.370971, -3.6601465, 10.471766)
 collision_layer = 64
 collision_mask = 32
 input_ray_pickable = false
@@ -1308,7 +1308,7 @@ shape = SubResource("BoxShape3D_j7e3e")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="TreasureSpawnArea16" type="Area3D" parent="TreasureSpawns/Depth5"]
-transform = Transform3D(0.99990255, -0.0139621785, 0, 0.013797823, 0.98813194, -0.15298581, 0.0021360158, 0.15297091, 0.98822814, 15.9974, -4.1596823, 14.021892)
+transform = Transform3D(0.99990255, -0.0139621785, 0, 0.013797823, 0.98813194, -0.15298581, 0.0021360158, 0.15297091, 0.98822814, 15.994907, -3.9832718, 14.049201)
 collision_layer = 64
 collision_mask = 32
 input_ray_pickable = false
@@ -1323,7 +1323,7 @@ shape = SubResource("BoxShape3D_1bbis")
 debug_color = Color(0, 0, 0, 1)
 
 [node name="TreasureSpawnArea17" type="Area3D" parent="TreasureSpawns/Depth5"]
-transform = Transform3D(0.99990255, 0.0139621785, 0, -0.013836286, 0.9908865, -0.13398616, -0.0018707394, 0.13397312, 0.99098295, 2.62, -4.208, 13.9933)
+transform = Transform3D(0.99990255, 0.0139621785, 0, -0.013836286, 0.9908865, -0.13398616, -0.0018707394, 0.13397312, 0.99098295, 2.6201842, -4.1949153, 13.9950695)
 collision_layer = 64
 collision_mask = 32
 input_ray_pickable = false

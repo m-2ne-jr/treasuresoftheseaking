@@ -3,11 +3,14 @@ extends Node3D
 enum WaveLength { WAVE_SHORT, WAVE_MEDIUM, WAVE_FULL }
 
 @export var depths: Dictionary[WaveLength, WaveDepth]
-var next_wave_length: WaveLength
 
 @onready var anim_player: AnimationPlayer = %AnimationPlayer
+var next_wave_length: WaveLength
 
 func _ready() -> void:
+	SignalBus.game_over.connect(pause_player)
+	SignalBus.game_complete.connect(pause_player)
+	await SignalBus.player_ready
 	request_wave_anim_length(depths[WaveLength.WAVE_SHORT].animation_name)
 
 func get_next_wave_random():
@@ -37,3 +40,6 @@ func go_to_next_wave():
 		return
 	GameMaster.current_wave += 1
 	print_debug(GameMaster.current_wave)
+
+func pause_player():
+	anim_player.pause()

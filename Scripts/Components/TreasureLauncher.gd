@@ -5,11 +5,12 @@ extends Node3D
 @export var spawn_arc_width = 30
 	
 @export var spawn_force: int = 3
+@export var torque_force: float = 1.5
 @export var speed_affect_mod: float = 0.5
 
 var drop_force:= 5.0
 var drop_treasure_lifetime := 1.0
-var torque_force := 1.5
+var drop_scale_factor := 0.5
 
 func spawn_treasure_with_force(treasure: Treasure, speed: float):
 	var new_object: TreasureObject = setup_treasure_object(treasure)
@@ -22,6 +23,7 @@ func spawn_treasure_with_force(treasure: Treasure, speed: float):
 func spawn_treasure_as_drop(treasure: Treasure):
 	var new_object: TreasureObject = setup_treasure_object(treasure)
 	get_tree().root.add_child(new_object)
+	new_object.scale *= drop_scale_factor
 	new_object.hitbox.disabled = true
 	
 	drop_object(new_object)

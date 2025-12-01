@@ -22,6 +22,8 @@ func _ready() -> void:
 	SignalBus.treasure_list_changed.connect(_on_treasure_list_changed)
 	SignalBus.player_respawned.connect(on_player_respawned)
 	SignalBus.player_ready.connect(on_player_ready)
+	SignalBus.game_over.connect(on_game_over)
+	SignalBus.game_complete.connect(on_game_complete)
 	
 	max_speed = base_speed
 
@@ -83,6 +85,10 @@ func _on_hitbox_area_entered(_area: Area3D) -> void:
 
 func die():
 	print_debug("Died.")
+	handle_player_knockout()
+	GameMaster.on_player_died()
+	
+func handle_player_knockout():
 	hitbox_area.shape_owner_set_disabled(hitbox_area.get_index(), true)
 	animator.set_active(false)
 	can_act = false
@@ -90,13 +96,19 @@ func die():
 	ragdoll.reparent_to_ragdoll(skin)
 	ragdoll.activate_ragdoll()
 	
-	GameMaster.on_player_died()
-
 func on_player_respawned():
 	ragdoll.reset()
 	skin.reparent(self)
+	skin.global_rotation.y = 0
 	animator.set_active()
 
 func on_player_ready():
 	hitbox_area.shape_owner_set_disabled(hitbox_area.get_index(), false)
 	can_act = true
+
+func on_game_over():
+	handle_player_knockout()
+
+func on_game_complete():
+	hitbox_area.shape_owner_set_disabled(hitbox_area.get_index(), false)
+	can_act = false

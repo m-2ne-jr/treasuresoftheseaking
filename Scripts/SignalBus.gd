@@ -1,6 +1,13 @@
 extends Node
 
 @warning_ignore("unused_signal")
+signal game_over
+@warning_ignore("unused_signal")
+signal game_restarted
+@warning_ignore("unused_signal")
+signal game_complete
+
+@warning_ignore("unused_signal")
 signal held_score_changed(value: int)
 @warning_ignore("unused_signal")
 signal score_changed(value: int)
