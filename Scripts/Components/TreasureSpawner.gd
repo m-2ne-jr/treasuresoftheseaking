@@ -20,7 +20,7 @@ func _on_spawner_exited(_area_rid: RID, area: Area3D, area_shape_index: int, _lo
 			return
 		
 		treasure_object.treasure = treasure
-		get_tree().root.add_child.call_deferred(treasure_object)
+		get_node("/root/World").add_child.call_deferred(treasure_object)
 		await treasure_object.tree_entered
 		treasure_object.global_position = spawn_position
 		treasure_object.global_rotation.y = randf_range(-1, 1)
