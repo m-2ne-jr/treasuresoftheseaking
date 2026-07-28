@@ -461,6 +461,7 @@ metadata/_custom_type_script = "uid://c05qqlox5s7eg"
 size = Vector3(13.062256, 0.1677, 2.5458984)
 
 [node name="World" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.081203, 7.5658836, 17.640697)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_50glp")

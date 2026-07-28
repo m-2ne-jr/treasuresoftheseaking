@@ -15,6 +15,7 @@ var current_speed: float
 var can_act: bool = true
 
 const ACCELERATION: float = 50
+const DIR_DEADZONE: float = 0.01
 
 signal treasure_drop_requested(speed: float)
 
@@ -49,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	animator.set_movement_state(direction)
 	
-	if direction.length() > 0.01:
+	if direction.length() > DIR_DEADZONE:
 		rotate_skin_to_direction(Vector2(direction.x, direction.z))
 
 func rotate_skin_to_direction(dir: Vector2):

@@ -7,6 +7,8 @@ extends Node3D
 var can_move: bool
 
 const CAMERA_MARGIN = 0.01
+const CAMERA_Y_MIN_DEG := -60
+const CAMERA_Y_MAX_DEG := 30
 
 func _ready() -> void:
 	position = get_parent().position + Vector3(0, cam_offset, 0)
@@ -26,7 +28,11 @@ func _physics_process(_delta: float) -> void:
 		input_y = Input.get_axis("camera_left", "camera_right")
 	
 	if input_x || input_y:
-		var clamped_x = clamp(global_rotation_degrees.x + input_x * senstivity, -60, 30)
+		var clamped_x = clamp(
+			global_rotation_degrees.x + input_x * senstivity,
+			CAMERA_Y_MIN_DEG, 
+			CAMERA_Y_MAX_DEG
+		)
 		global_rotation.x = deg_to_rad(clamped_x)
 		global_rotation.y += deg_to_rad(input_y * senstivity)
 
