@@ -1,7 +1,5 @@
 extends Node3D
 
-@export var treasure_object_scene: PackedScene
-
 func _on_spawner_exited(_area_rid: RID, area: Area3D, area_shape_index: int, _local_shape_index: int) -> void:
 	if !is_able_to_spawn(area):
 		return
@@ -12,16 +10,13 @@ func _on_spawner_exited(_area_rid: RID, area: Area3D, area_shape_index: int, _lo
 	var treasures_to_spawn = get_treasure_spawn_count(area)
 	
 	SignalBus.treasures_being_spawned.emit(true)
-	for x in range(treasures_to_spawn):
-		var treasure_object = get_treasure_to_spawn()
+	for i in treasures_to_spawn:
 		var spawn_position: Vector3 = get_spawn_position(area, shape)
 		var treasure = get_treasure_from_area(area)
 		if treasure == null:
 			return
 		
-		treasure_object.treasure = treasure
-		get_node("/root/World").add_child.call_deferred(treasure_object)
-		await treasure_object.tree_entered
+		var treasure_object = get_treasure_to_spawn(treasure)
 		treasure_object.global_position = spawn_position
 		treasure_object.global_rotation.y = randf_range(-1, 1)
 	SignalBus.treasures_being_spawned.emit(false)
@@ -36,8 +31,8 @@ func get_treasure_spawn_count(area: Area3D) -> int:
 	var treasures_to_spawn: int = randi_range(treasure_spawn_min, treasure_spawn_max)
 	return treasures_to_spawn
 
-func get_treasure_to_spawn() -> TreasureObject:
-	var treasure_object = treasure_object_scene.instantiate() as TreasureObject
+func get_treasure_to_spawn(treasure: Treasure) -> TreasureObject:
+	var treasure_object = TreasurePool.get_object_from_pool(treasure)
 	treasure_object.wave_created_on = GameMaster.current_wave
 	return treasure_object
 
@@ -122,4 +117,4 @@ func _on_spawner_treasure_exited(body: Node3D) -> void:
 		return
 	var treasure_object = body as TreasureObject
 	if treasure_object.wave_created_on < GameMaster.current_wave:
-		treasure_object.queue_free()
+		TreasurePool.return_object_to_pool(treasure_object)

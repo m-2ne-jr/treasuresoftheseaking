@@ -9,8 +9,8 @@ func _on_nest_object_entered(body: Node3D) -> void:
 	GameMaster.current_points += body.treasure.value
 	play_animation()
 	SoundManager.play_sound(SoundManager.sound_library["sfx_treasure_bank_single"])
-	body.queue_free()
-	SignalBus.treasure_object_destroyed.emit()
+	TreasurePool.return_object_to_pool(body)
+	SignalBus.treasure_object_cleared.emit()
 
 func play_animation():
 	animation_player.stop()

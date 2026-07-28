@@ -27,7 +27,7 @@ signal player_ready
 @warning_ignore("unused_signal")
 signal treasure_acquired(successful: bool)
 @warning_ignore("unused_signal")
-signal treasure_object_destroyed
+signal treasure_object_cleared
 @warning_ignore("unused_signal")
 signal treasures_being_spawned(state: bool)
 

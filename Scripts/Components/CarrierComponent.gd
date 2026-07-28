@@ -35,9 +35,8 @@ func _on_treasure_picked_up(treasure_object: TreasureObject) -> void:
 	var pickup_sfx := SoundManager.sound_library["sfx_treasure_pickup"]
 	SoundManager.play_sound(pickup_sfx)
 	
-	treasure_object.queue_free()
-	await treasure_object.tree_exited
-	SignalBus.treasure_object_destroyed.emit()
+	TreasurePool.return_object_to_pool(treasure_object)
+	SignalBus.treasure_object_cleared.emit()
 	
 	add_treasure_to_list(treasure)
 	SignalBus.treasure_acquired.emit(true)

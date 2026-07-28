@@ -1,9 +1,8 @@
 extends Area3D
 
-func _on_body_entered(body: Node3D) -> void:
+func destroy_object(obj: Node3D) -> void:
 	print_debug("Fallthrough detected.")
-	body.queue_free()
-
-func _on_body_exited(body: Node3D) -> void:
-	print_debug("Fallthrough detected.")
-	body.queue_free()
+	if !obj is TreasureObject:
+		obj.queue_free()
+		return
+	TreasurePool.return_object_to_pool(obj)

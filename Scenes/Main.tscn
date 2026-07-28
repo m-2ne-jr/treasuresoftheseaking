@@ -1,11 +1,10 @@
-[gd_scene load_steps=112 format=3 uid="uid://dy6ak3imx5uxf"]
+[gd_scene load_steps=111 format=3 uid="uid://dy6ak3imx5uxf"]
 
 [ext_resource type="Shader" uid="uid://dtj2l7r68s4gd" path="res://Assets/Environment/Sky/sky_shader.tres" id="1_2w5on"]
 [ext_resource type="PackedScene" uid="uid://dd15elxx4yu6t" path="res://Assets/Environment/Beach/beach.glb" id="2_50glp"]
 [ext_resource type="PackedScene" uid="uid://7anpsfaqobl" path="res://Assets/Environment/Beach/SandDune.tscn" id="2_hwpts"]
 [ext_resource type="PackedScene" uid="uid://dr67jwlka4f4y" path="res://Assets/Environment/Nest/Nest.tscn" id="2_jw32o"]
 [ext_resource type="PackedScene" uid="uid://b2jhi147qhduj" path="res://Scenes/Environment/BIG_WAVE.tscn" id="2_rgh2o"]
-[ext_resource type="PackedScene" uid="uid://jpifec0xkcu7" path="res://Scenes/Objects/Treasure.tscn" id="2_s0mbb"]
 [ext_resource type="Script" uid="uid://bneb2jpkxrdcg" path="res://Scripts/Objects/TreasureDeathWall.gd" id="3_50glp"]
 [ext_resource type="Resource" uid="uid://de2wtdxxtk188" path="res://Data/TreasureCoin.tres" id="3_kln2b"]
 [ext_resource type="PackedScene" uid="uid://cbskvd00otjtq" path="res://Assets/Environment/FencePieces/FenceType1.tscn" id="7_2w5on"]
@@ -1051,68 +1050,6 @@ script = ExtResource("3_50glp")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TreasureDeathWall"]
 shape = SubResource("BoxShape3D_bmxlf")
 
-[node name="StartingTreasures" type="Node3D" parent="."]
-
-[node name="Treasure" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.854021, -0.22510064, -19.395895)
-treasure = ExtResource("3_kln2b")
-
-[node name="Treasure2" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1039014, -0.45263207, -19.679213)
-treasure = ExtResource("8_frkhe")
-
-[node name="Treasure3" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.711149, -0.25144988, -21.12945)
-treasure = ExtResource("9_1p5hy")
-
-[node name="Treasure4" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4006681, -0.15667742, -18.578691)
-treasure = ExtResource("3_kln2b")
-
-[node name="Treasure5" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.150787, -0.45387426, -18.86201)
-treasure = ExtResource("8_frkhe")
-
-[node name="Treasure6" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.610025, -0.3149451, -14.886796)
-treasure = ExtResource("9_1p5hy")
-
-[node name="Treasure7" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3685575, -0.38397133, -16.00214)
-treasure = ExtResource("3_kln2b")
-
-[node name="Treasure8" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2858434, -0.3877765, -17.864151)
-treasure = ExtResource("8_frkhe")
-
-[node name="Treasure9" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.127087, -0.25008756, -18.6717)
-treasure = ExtResource("9_1p5hy")
-
-[node name="Treasure10" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.964197, -0.58965313, -13.158993)
-treasure = ExtResource("3_kln2b")
-
-[node name="Treasure11" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4705582, -0.5934583, -14.145924)
-treasure = ExtResource("8_frkhe")
-
-[node name="Treasure12" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9110117, -0.45576936, -14.953472)
-treasure = ExtResource("9_1p5hy")
-
-[node name="Treasure13" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.564688, -0.38397133, -16.00214)
-treasure = ExtResource("3_kln2b")
-
-[node name="Treasure14" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.260404, -0.3877765, -17.864151)
-treasure = ExtResource("8_frkhe")
-
-[node name="Treasure15" parent="StartingTreasures" instance=ExtResource("2_s0mbb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7120075, -3.3987615, -18.6717)
-treasure = ExtResource("9_1p5hy")
-
 [node name="TreasureSpawns" type="Node3D" parent="."]
 
 [node name="Depth1" type="Node3D" parent="TreasureSpawns"]
@@ -1385,7 +1322,7 @@ metadata/MaxTreasureSpawn = 9
 shape = SubResource("BoxShape3D_yn2g2")
 debug_color = Color(0, 0, 0, 1)
 
-[connection signal="body_entered" from="TreasureDeathWall" to="TreasureDeathWall" method="_on_body_entered"]
-[connection signal="body_exited" from="TreasureDeathWall" to="TreasureDeathWall" method="_on_body_exited"]
+[connection signal="body_entered" from="TreasureDeathWall" to="TreasureDeathWall" method="destroy_object"]
+[connection signal="body_exited" from="TreasureDeathWall" to="TreasureDeathWall" method="destroy_object"]
 
 [editable path="Beach"]

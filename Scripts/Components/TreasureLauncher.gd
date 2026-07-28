@@ -1,7 +1,6 @@
 class_name TreasureSpawner
 extends Node3D
 
-@export var treasure_object_scene: PackedScene
 @export var spawn_arc_width = 30
 	
 @export var spawn_force: int = 3
@@ -14,7 +13,6 @@ var drop_scale_factor := 0.5
 
 func spawn_treasure_with_force(treasure: Treasure, speed: float):
 	var new_object: TreasureObject = setup_treasure_object(treasure)
-	get_tree().root.add_child(new_object)
 	new_object.animation_player.play("wait_allow_pick_up")
 	
 	var modified_speed: float = speed * speed_affect_mod
@@ -22,16 +20,15 @@ func spawn_treasure_with_force(treasure: Treasure, speed: float):
 
 func spawn_treasure_as_drop(treasure: Treasure):
 	var new_object: TreasureObject = setup_treasure_object(treasure)
-	get_tree().root.add_child(new_object)
 	new_object.scale *= drop_scale_factor
 	new_object.hitbox.disabled = true
 	
 	drop_object(new_object)
 	await get_tree().create_timer(drop_treasure_lifetime).timeout
-	new_object.queue_free()
+	TreasurePool.return_object_to_pool(new_object)
 
 func setup_treasure_object(treasure: Treasure) -> TreasureObject:
-	var treasure_object = treasure_object_scene.instantiate() as TreasureObject
+	var treasure_object = TreasurePool.get_object_from_pool(treasure)
 	treasure_object.treasure = treasure
 	treasure_object.wave_created_on = GameMaster.current_wave + 1
 	treasure_object.can_be_picked_up = false
