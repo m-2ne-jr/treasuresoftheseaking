@@ -42,7 +42,10 @@ tonemap_exposure = 0.7
 ssao_radius = 0.5
 ssao_intensity = 5.0
 sdfgi_use_occlusion = true
-volumetric_fog_density = 0.0125
+fog_enabled = true
+fog_light_color = Color(1.0187857, 1.0715504, 1.1564326, 1)
+fog_density = 0.0041
+fog_sky_affect = 0.0
 volumetric_fog_emission = Color(1, 1, 1, 1)
 volumetric_fog_sky_affect = 0.0
 

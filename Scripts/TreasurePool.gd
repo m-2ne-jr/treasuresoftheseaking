@@ -23,7 +23,6 @@ func get_object_from_pool(treasure: Treasure) -> TreasureObject:
 	if treasure_pool.is_empty():
 		extend_pool(POOL_SIZE_INCREMENT)
 	var front_treasure: TreasureObject = treasure_pool.pop_front()
-	print_debug("Objects in pool: ", treasure_pool.size())
 	front_treasure.activate_object(treasure)
 	return front_treasure
 
@@ -39,4 +38,3 @@ func return_object_to_pool(treasure: TreasureObject) -> void:
 	treasure.global_rotation = Vector3.ZERO
 	treasure.scale = Vector3.ONE
 	treasure_pool.append(treasure)
-	print_debug("Objects in pool: ", treasure_pool.size())
