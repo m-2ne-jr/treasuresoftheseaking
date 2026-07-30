@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqlvw82fvpvyw"]
+
+[ext_resource type="PackedScene" uid="uid://dvv6vvui23i08" path="res://Treasures/Sinker/sinker.glb" id="1_olagl"]
+
+[node name="Sinker" type="Node3D"]
+
+[node name="sinker" parent="." instance=ExtResource("1_olagl")]

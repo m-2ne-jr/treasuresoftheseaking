@@ -11,16 +11,16 @@ config_version=5
 [application]
 
 config/name="TreasuresOfTheSeaKing"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Environment/Main.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameMaster="*res://Scripts/GameMaster.gd"
-SignalBus="*res://Scripts/SignalBus.gd"
-SoundManager="*res://Scripts/SoundManager.gd"
-TreasurePool="*res://Scripts/TreasurePool.gd"
+GameMaster="*res://Core/GameMaster.gd"
+SignalBus="*res://Core/SignalBus.gd"
+SoundManager="*res://Audio/SoundManager.gd"
+TreasurePool="*res://Core/TreasurePool.gd"
 
 [display]
 

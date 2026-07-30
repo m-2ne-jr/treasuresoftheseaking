@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cocwkl2uucula"]
-
-[ext_resource type="PackedScene" uid="uid://r0wwk2asmwl2" path="res://Assets/Treasures/Gold/gold.glb" id="1_oslk0"]
-
-[node name="GoldBar" type="Node3D"]
-
-[node name="gold" parent="." instance=ExtResource("1_oslk0")]

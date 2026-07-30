@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://crtqjyg1ljtaa"]
-
-[ext_resource type="PackedScene" uid="uid://cmlqae0ycqxfp" path="res://Assets/Treasures/Necklace/necklace.glb" id="1_743pf"]
-
-[node name="Necklace" type="Node3D"]
-
-[node name="necklace" parent="." instance=ExtResource("1_743pf")]
