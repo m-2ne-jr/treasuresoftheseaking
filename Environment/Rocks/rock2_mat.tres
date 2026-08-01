@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://lo4i1fqnukjy"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://lo4i1fqnukjy"]
 
 [ext_resource type="Texture2D" uid="uid://mp3the4plqjb" path="res://Environment/Rocks/rocktype2_rock2_tex.png" id="1_bjjlq"]
 

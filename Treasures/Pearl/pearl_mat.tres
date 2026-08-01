@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://m1p43ysno7tu"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://m1p43ysno7tu"]
 
 [ext_resource type="Texture2D" uid="uid://cayjt3v73fp37" path="res://Treasures/Pearl/pearl_pearl_tex.png" id="1_fj54s"]
 

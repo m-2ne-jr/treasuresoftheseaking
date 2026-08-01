@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://drspa3y70rfgj"]
+[gd_scene format=3 uid="uid://drspa3y70rfgj"]
 
 [ext_resource type="PackedScene" uid="uid://dmdjtg2qgqixl" path="res://Treasures/Glass/glass.glb" id="1_q3ljs"]
 
-[node name="Glass" type="Node3D"]
+[node name="Glass" type="Node3D" unique_id=1005109774]
 
-[node name="glass" parent="." instance=ExtResource("1_q3ljs")]
+[node name="glass" parent="." unique_id=768237880 instance=ExtResource("1_q3ljs")]

@@ -3,7 +3,7 @@ extends Node
 enum WaveState { WAVE_OUT, WAVE_IN }
 
 var wave_state: WaveState = WaveState.WAVE_OUT
-var current_max_depth = 0
+var current_max_depth: int = 0
 
 const MIN_DEPTH := 1
 const MAX_DEPTH := 5
@@ -45,17 +45,17 @@ const UI_ROOT = preload("uid://j2gn0yxv0umb")
 const PLAYER_SCENE = preload("uid://ceef0j4hdya6l")
 
 func _ready() -> void:
-	goal_timer.timeout.connect(on_game_timer_timeout)
-	SignalBus.player_ready.connect(check_time_left)
-	SignalBus.treasures_being_spawned.connect(set_treasures_spawning)
+	ErrorHelper.try(goal_timer.timeout.connect(on_game_timer_timeout))
+	ErrorHelper.try(SignalBus.player_ready.connect(check_time_left))
+	ErrorHelper.try(SignalBus.treasures_being_spawned.connect(set_treasures_spawning))
 	load_game_scene.call_deferred(true)
 
 
-func load_game_scene(full_load: bool = false):
+func load_game_scene(full_load: bool = false) -> void:
 	if is_treasure_spawning:
 		await SignalBus.treasures_being_spawned
 	
-	get_tree().change_scene_to_packed(MAIN_SCENE)
+	ErrorHelper.try(get_tree().change_scene_to_packed(MAIN_SCENE))
 	await get_tree().scene_changed
 	
 	SignalBus.spawn_initial_treasures.emit()
@@ -72,14 +72,14 @@ func load_game_scene(full_load: bool = false):
 	add_child(goal_timer)
 	goal_timer.start(goal_levels[current_goal].time)
 	
-	var ui_scene = UI_ROOT.instantiate()
+	var ui_scene: Node = UI_ROOT.instantiate()
 	get_tree().root.add_child.call_deferred(ui_scene)
 	is_game_time_active = true
 	is_player_respawning = false
 	SignalBus.player_ready.emit()
 
 
-func increase_goal_level():
+func increase_goal_level() -> void:
 	if current_goal == goal_levels.size():
 		on_all_goals_complete()
 		return
@@ -93,22 +93,22 @@ func increase_goal_level():
 	current_points = current_points
 
 
-func on_player_died():
+func on_player_died() -> void:
 	is_player_respawning = true
 	SignalBus.player_died.emit()
 
 
-func respawn_player():
+func respawn_player() -> void:
 	player_spawn = get_node("/root/World/PlayerSpawn")
 	player.global_position = player_spawn.global_position
 	SignalBus.player_respawned.emit()
 
 
-func on_death_anim_finished():
+func on_death_anim_finished() -> void:
 	SignalBus.player_ready.emit()
 
 
-func check_time_left():
+func check_time_left() -> void:
 	if is_player_respawning:
 		is_player_respawning = false
 		return
@@ -119,19 +119,19 @@ func check_time_left():
 	on_game_timer_timeout()
 
 
-func on_game_timer_timeout():
+func on_game_timer_timeout() -> void:
 	print_debug("Game over.")
 	set_game_end_flags()
 	SignalBus.game_over.emit()
 
 
-func on_all_goals_complete():
+func on_all_goals_complete() -> void:
 	print_debug("Win!")
 	set_game_end_flags()
 	SignalBus.game_complete.emit()
 
 
-func set_game_end_flags():
+func set_game_end_flags() -> void:
 	if is_player_respawning:
 		await SignalBus.player_ready
 	goal_timer.stop()
@@ -139,9 +139,9 @@ func set_game_end_flags():
 	is_game_time_active = false
 
 
-func restart_game():
+func restart_game() -> void:
 	load_game_scene()
-	await Engine.get_main_loop().process_frame
+	await (Engine.get_main_loop() as SceneTree).process_frame
 	SignalBus.game_restarted.emit()
 	
 	current_wave = 0
@@ -153,5 +153,5 @@ func restart_game():
 	is_game_time_active = true
 
 
-func set_treasures_spawning(state: bool):
+func set_treasures_spawning(state: bool) -> void:
 	is_treasure_spawning = state

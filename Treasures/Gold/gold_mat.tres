@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dlw48tarc4q3y"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dlw48tarc4q3y"]
 
 [ext_resource type="Texture2D" uid="uid://m1ikwndtgs0r" path="res://Treasures/Gold/gold_gold_tex.png" id="1_c10kg"]
 

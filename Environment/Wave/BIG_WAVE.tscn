@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2jhi147qhduj"]
+[gd_scene format=3 uid="uid://b2jhi147qhduj"]
 
 [ext_resource type="Script" uid="uid://badkmpse8x63s" path="res://Environment/Wave/BigWave.gd" id="1_5b2jr"]
 [ext_resource type="Script" uid="uid://66wxi1qfe82q" path="res://Core/WaveDepth.gd" id="2_e26h7"]
@@ -248,7 +248,7 @@ _data = {
 &"wave_short": SubResource("Animation_fdm4g")
 }
 
-[node name="BIG WAVE" type="Node3D"]
+[node name="BIG WAVE" type="Node3D" unique_id=1012139153]
 script = ExtResource("1_5b2jr")
 depths = Dictionary[int, ExtResource("2_e26h7")]({
 0: SubResource("Resource_hgv4c"),
@@ -256,56 +256,54 @@ depths = Dictionary[int, ExtResource("2_e26h7")]({
 2: SubResource("Resource_bw54e")
 })
 
-[node name="WavePath" type="Path3D" parent="."]
+[node name="WavePath" type="Path3D" parent="." unique_id=1333208378]
 curve = SubResource("Curve3D_etyyo")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="WavePath"]
+[node name="PathFollow3D" type="PathFollow3D" parent="WavePath" unique_id=970814281]
 transform = Transform3D(0.9999911, 0, 0, 0, 0.9999392, 0, 0, 0, 0.99994075, 0, 0.0694, 11.7297)
 rotation_mode = 0
 loop = false
 tilt_enabled = false
 
-[node name="Wave" type="Node3D" parent="WavePath/PathFollow3D"]
+[node name="Wave" type="Node3D" parent="WavePath/PathFollow3D" unique_id=1586774504]
 transform = Transform3D(1.3826661, 0, 0, 0, 1, 0, 0, 0, 1.2430068, 0, -2.5, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WavePath/PathFollow3D/Wave"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WavePath/PathFollow3D/Wave" unique_id=695779853]
 mesh = SubResource("BoxMesh_etyyo")
 
-[node name="WaveHurtbox" type="Area3D" parent="WavePath/PathFollow3D/Wave"]
+[node name="WaveHurtbox" type="Area3D" parent="WavePath/PathFollow3D/Wave" unique_id=1022434836]
 collision_layer = 128
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WavePath/PathFollow3D/Wave/WaveHurtbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WavePath/PathFollow3D/Wave/WaveHurtbox" unique_id=1237828376]
 shape = SubResource("BoxShape3D_we14y")
 debug_color = Color(1, 0, 0.1333332, 1)
 
-[node name="SpawnerPath" type="Path3D" parent="."]
+[node name="SpawnerPath" type="Path3D" parent="." unique_id=946222969]
 curve = SubResource("Curve3D_we14y")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="SpawnerPath"]
+[node name="PathFollow3D" type="PathFollow3D" parent="SpawnerPath" unique_id=714148798]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 3, -25)
 rotation_mode = 0
 loop = false
 tilt_enabled = false
 
-[node name="TreasureSpawner" type="Node3D" parent="SpawnerPath/PathFollow3D"]
+[node name="TreasureSpawner" type="Node3D" parent="SpawnerPath/PathFollow3D" unique_id=1829454588]
 
-[node name="SpawnerArea" type="Area3D" parent="SpawnerPath/PathFollow3D/TreasureSpawner"]
+[node name="SpawnerArea" type="Area3D" parent="SpawnerPath/PathFollow3D/TreasureSpawner" unique_id=313079719]
 collision_layer = 32
 collision_mask = 68
 input_ray_pickable = false
 script = ExtResource("4_841q7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnerPath/PathFollow3D/TreasureSpawner/SpawnerArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnerPath/PathFollow3D/TreasureSpawner/SpawnerArea" unique_id=203253219]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.499998, 0)
 shape = SubResource("BoxShape3D_fdm4g")
 debug_color = Color(0.38330108, 0.61314744, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=56420450]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_5q364")
-}
+libraries/ = SubResource("AnimationLibrary_5q364")
 
 [connection signal="body_exited" from="SpawnerPath/PathFollow3D/TreasureSpawner/SpawnerArea" to="SpawnerPath/PathFollow3D/TreasureSpawner/SpawnerArea" method="_on_treasure_exited"]

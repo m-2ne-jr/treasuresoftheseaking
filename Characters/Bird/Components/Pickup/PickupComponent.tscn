@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl8qt0ycl5r77"]
+[gd_scene format=3 uid="uid://dl8qt0ycl5r77"]
 
 [ext_resource type="Script" uid="uid://dssygfcu7v30f" path="res://Characters/Bird/Components/Pickup/PickupComponent.gd" id="1_gkdwq"]
 
@@ -6,15 +6,15 @@
 radius = 0.13134766
 height = 0.42382813
 
-[node name="PickupComponent" type="Node3D"]
+[node name="PickupComponent" type="Node3D" unique_id=2138574555]
 script = ExtResource("1_gkdwq")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1491619420]
 unique_name_in_owner = true
 collision_layer = 3
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1136007543]
 shape = SubResource("CapsuleShape3D_r6afq")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_pickup_received"]

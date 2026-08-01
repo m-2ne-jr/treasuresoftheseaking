@@ -11,7 +11,7 @@ extends Resource
 @export var position_offset: float
 
 func get_instance() -> Treasure:
-	var new_treasure = Treasure.new()
+	var new_treasure: Treasure = Treasure.new()
 	new_treasure.name = name
 	new_treasure.value = value
 	new_treasure.weight = weight

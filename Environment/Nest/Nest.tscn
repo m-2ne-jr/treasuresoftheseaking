@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr67jwlka4f4y"]
+[gd_scene format=3 uid="uid://dr67jwlka4f4y"]
 
 [ext_resource type="Script" uid="uid://ckp2iufsbdaf7" path="res://Environment/Nest/Nest.gd" id="1_0df7p"]
 [ext_resource type="PackedScene" uid="uid://bpy0dco06od7" path="res://Environment/Nest/nest.glb" id="1_cvj4b"]
@@ -28,44 +28,42 @@ _data = {
 &"on_get_treasure": SubResource("Animation_qn0wt")
 }
 
-[node name="Nest" type="Node3D"]
+[node name="Nest" type="Node3D" unique_id=1555602653]
 transform = Transform3D(0.6598159, 0, 0, 0, 0.6598159, 0, 0, 0, 0.6598159, 0, 0, 0)
 
-[node name="Geometry" type="Node3D" parent="."]
+[node name="Geometry" type="Node3D" parent="." unique_id=2078318611]
 
-[node name="nest" parent="Geometry" instance=ExtResource("1_cvj4b")]
+[node name="nest" parent="Geometry" unique_id=493206614 instance=ExtResource("1_cvj4b")]
 
-[node name="Rock01" parent="Geometry" instance=ExtResource("2_cvj4b")]
+[node name="Rock01" parent="Geometry" unique_id=1818496361 instance=ExtResource("2_cvj4b")]
 transform = Transform3D(0.13714187, 0, 0.06350851, 0, 0.15113313, 0, -0.06350851, 0, 0.13714187, -0.6585566, 0, 0.42744538)
 
-[node name="Rock02" parent="Geometry" instance=ExtResource("3_3ee5i")]
+[node name="Rock02" parent="Geometry" unique_id=2094682516 instance=ExtResource("3_3ee5i")]
 transform = Transform3D(0.16880924, 0, 0.0044248477, 0, 0.16886723, 0, -0.0044248477, 0, 0.16880924, -0.5176682, 0, 0.5633802)
 
-[node name="Rock03" parent="Geometry" instance=ExtResource("2_cvj4b")]
+[node name="Rock03" parent="Geometry" unique_id=1431345574 instance=ExtResource("2_cvj4b")]
 transform = Transform3D(-0.10484331, 0, 0.13399076, 0, 0.17013422, 0, -0.13399076, 0, -0.10484331, 0.591231, 0, 0.60421604)
 
-[node name="Rock04" parent="Geometry" instance=ExtResource("3_3ee5i")]
+[node name="Rock04" parent="Geometry" unique_id=888710870 instance=ExtResource("3_3ee5i")]
 transform = Transform3D(0.097431846, 0, 0.05677842, 0, 0.11276858, 0, -0.05677842, 0, 0.097431846, 0.4113236, 0, 0.54387075)
 
-[node name="Rock05" parent="Geometry" instance=ExtResource("3_3ee5i")]
+[node name="Rock05" parent="Geometry" unique_id=537171501 instance=ExtResource("3_3ee5i")]
 transform = Transform3D(0.10944883, 0, -0.07337782, 0, 0.06632456, 0, 0.07337782, 0, 0.10944883, 0.32587, 0, -0.524357)
 
-[node name="Rock06" parent="Geometry" instance=ExtResource("2_cvj4b")]
+[node name="Rock06" parent="Geometry" unique_id=1873005349 instance=ExtResource("2_cvj4b")]
 transform = Transform3D(-0.057530753, 0, -0.053804323, 0, 0.07876987, 0, 0.053804323, 0, -0.057530753, 0.21975465, -1.1291908e-08, -0.5951046)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=88948136]
 collision_layer = 16
 collision_mask = 4
 script = ExtResource("1_0df7p")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1359996042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22875714, 0)
 shape = SubResource("CylinderShape3D_jw32o")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=835772808]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_vf3dq")
-}
+libraries/ = SubResource("AnimationLibrary_vf3dq")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_nest_object_entered"]

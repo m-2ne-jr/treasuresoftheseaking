@@ -17,7 +17,7 @@ func _ready() -> void:
 	var child_index: int = get_children().find_custom(_is_collision_shape)
 	spawner_area = get_child(child_index)
 
-	SignalBus.spawn_initial_treasures.connect(_force_spawn_treasures.bind(START_DEPTH))
+	ErrorHelper.try(SignalBus.spawn_initial_treasures.connect(_force_spawn_treasures.bind(START_DEPTH)))
 
 
 func _on_spawn_trigger_exited(area: Area3D) -> void:
@@ -31,15 +31,15 @@ func _on_spawn_trigger_exited(area: Area3D) -> void:
 	SignalBus.treasures_being_spawned.emit(false)
 
 func spawn_treasures() -> void:
-	var treasures_to_spawn = get_treasure_spawn_count()
+	var treasures_to_spawn: int = get_treasure_spawn_count()
 	
 	for i in treasures_to_spawn:
-		var spawn_position: Vector3 = get_spawn_position(spawner_area.shape)
-		var treasure = get_treasure()
+		var spawn_position: Vector3 = get_spawn_position(spawner_area.shape as BoxShape3D)
+		var treasure: Treasure = get_treasure()
 		if treasure == null:
 			return
 		
-		var treasure_object = get_treasure_to_spawn(treasure)
+		var treasure_object: TreasureObject = get_treasure_to_spawn(treasure)
 		treasure_object.global_position = spawn_position
 		treasure_object.global_rotation.y = randf_range(-1, 1)
 
@@ -49,7 +49,7 @@ func get_treasure_spawn_count() -> int:
 
 
 func get_treasure_to_spawn(treasure: Treasure) -> TreasureObject:
-	var treasure_object = TreasurePool.get_object_from_pool(treasure)
+	var treasure_object: TreasureObject = TreasurePool.instance.get_object_from_pool(treasure)
 	treasure_object.wave_created_on = GameMaster.current_wave
 	return treasure_object
 
@@ -92,14 +92,14 @@ func is_able_to_spawn() -> bool:
 	return true
 
 
-func calculate_treasure_weights(treasures: Array):
+func calculate_treasure_weights(treasures: Array) -> void:
 	var weight_total: float = 0
 	for weighted_t: WeightedTreasure in treasures:
 		weight_total += weighted_t.weight
 	
 	var counted_weight: int = 0
 	for weighted_t: WeightedTreasure in treasures:
-		var norm_weight = weighted_t.get_normalized_weight(weight_total)
+		var norm_weight: int = weighted_t.get_normalized_weight(weight_total)
 		weighted_t.low_bound = counted_weight + 1
 		counted_weight += norm_weight
 		weighted_t.high_bound = counted_weight
@@ -107,7 +107,7 @@ func calculate_treasure_weights(treasures: Array):
 			weighted_t.high_bound = weighted_t.low_bound + 1
 
 
-func _is_collision_shape(item) -> bool:
+func _is_collision_shape(item: Variant) -> bool:
 	return item is CollisionShape3D
 
 

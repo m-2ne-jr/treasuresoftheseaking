@@ -14,7 +14,7 @@ const ANGLE_MAX_DEG := 180
 func  _ready() -> void:
 	reset()
 
-func reparent_to_ragdoll(node: Node3D):
+func reparent_to_ragdoll(node: Node3D) -> void:
 	if is_ragdoll_active:
 		return
 	node.reparent(ragdoll_container)
@@ -22,7 +22,7 @@ func reparent_to_ragdoll(node: Node3D):
 func get_impulse_from_angle(angle: float) -> Vector3:
 	return Vector3(sin(angle), 0, cos(angle))
 
-func activate_ragdoll():
+func activate_ragdoll() -> void:
 	if is_ragdoll_active:
 		return
 	is_ragdoll_active = true
@@ -37,7 +37,7 @@ func activate_ragdoll():
 	var torque_direction := get_impulse_from_angle(deg_to_rad(torque_angle))
 	ragdoll_container.apply_torque_impulse(torque_direction * TORQUE)
 
-func reset():
+func reset() -> void:
 	ragdoll_container.process_mode = Node.PROCESS_MODE_DISABLED
 	ragdoll_container.linear_velocity = Vector3.ZERO
 	ragdoll_container.angular_velocity = Vector3.ZERO

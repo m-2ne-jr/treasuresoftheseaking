@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://pagio2gy4uel"]
+[gd_scene format=3 uid="uid://pagio2gy4uel"]
 
 [ext_resource type="PackedScene" uid="uid://dco8ewyvr4w8t" path="res://Environment/Rocks/rocktype1.glb" id="1_xedt5"]
 
-[node name="Rock01" type="Node3D"]
+[node name="Rock01" type="Node3D" unique_id=1202074327]
 
-[node name="rocktype1" parent="." instance=ExtResource("1_xedt5")]
+[node name="rocktype1" parent="." unique_id=745406471 instance=ExtResource("1_xedt5")]

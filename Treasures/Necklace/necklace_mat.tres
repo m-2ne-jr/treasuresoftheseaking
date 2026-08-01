@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c7e3an4jyr40x"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c7e3an4jyr40x"]
 
 [ext_resource type="Texture2D" uid="uid://dlp6knlex6g3a" path="res://Treasures/Necklace/necklace_necklace_tex-necklace_alpha.png" id="1_qeooo"]
 [ext_resource type="Texture2D" uid="uid://dcpbijjoqvt1s" path="res://Treasures/Necklace/necklace_necklace_metallic-necklace_rough.png" id="2_ygfma"]

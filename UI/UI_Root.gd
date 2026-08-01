@@ -20,20 +20,20 @@ signal screen_faded
 signal screen_cleared
 
 func _ready() -> void:
-	SignalBus.score_changed.connect(update_score)
-	SignalBus.held_score_changed.connect(update_current_score)
-	SignalBus.carry_count_updated.connect(update_carry_count)
-	SignalBus.treasure_acquired.connect(on_treasure_get_state)
+	ErrorHelper.try(SignalBus.score_changed.connect(update_score))
+	ErrorHelper.try(SignalBus.held_score_changed.connect(update_current_score))
+	ErrorHelper.try(SignalBus.carry_count_updated.connect(update_carry_count))
+	ErrorHelper.try(SignalBus.treasure_acquired.connect(on_treasure_get_state))
 	
-	SignalBus.player_died.connect(fade_screen_out)
-	SignalBus.player_respawned.connect(fade_screen_in)
-	SignalBus.game_over.connect(on_game_over)
-	SignalBus.game_complete.connect(on_game_complete)
+	ErrorHelper.try(SignalBus.player_died.connect(fade_screen_out))
+	ErrorHelper.try(SignalBus.player_respawned.connect(fade_screen_in))
+	ErrorHelper.try(SignalBus.game_over.connect(on_game_over))
+	ErrorHelper.try(SignalBus.game_complete.connect(on_game_complete))
 	
-	screen_faded.connect(GameMaster.respawn_player)
-	screen_cleared.connect(GameMaster.on_death_anim_finished)
+	ErrorHelper.try(screen_faded.connect(GameMaster.respawn_player))
+	ErrorHelper.try(screen_cleared.connect(GameMaster.on_death_anim_finished))
+	ErrorHelper.try(screen_animator.animation_finished.connect(set_anim_just_finished))
 	
-	screen_animator.animation_finished.connect(set_anim_just_finished)
 	update_score(GameMaster.current_points)
 	update_current_score(0)
 	update_carry_count(0)
@@ -47,25 +47,25 @@ func _process(_delta: float) -> void:
 	time_label.text = "%02d:%02d.%03d" % [time_display_minutes, time_display_seconds, time_display_milliseconds]
 
 
-func update_score(value: int):
+func update_score(value: int) -> void:
 	score_label.text = "%s / %s" % [value, GameMaster.goal_levels[GameMaster.current_goal].score]
 
 
-func update_current_score(value: int):
+func update_current_score(value: int) -> void:
 	current_score_label.text = "+ %s" % value
 
 
-func update_carry_count(amount: int):
+func update_carry_count(amount: int) -> void:
 	carry_count_label.text = "%s / %s" % [amount, GameMaster.carry_limit]
 
 
-func on_treasure_get_state(was_successful: bool):
+func on_treasure_get_state(was_successful: bool) -> void:
 	if was_successful:
 		return
 	carry_label_animator.play("flash_carry_label")
 
 
-func fade_screen_out():
+func fade_screen_out() -> void:
 	screen_animator.play("screen_fade_out")
 	await screen_animator.animation_finished
 	if anim_just_finished != "screen_fade_out":
@@ -73,7 +73,7 @@ func fade_screen_out():
 	screen_faded.emit()
 
 
-func fade_screen_in():
+func fade_screen_in() -> void:
 	await get_tree().create_timer(screen_blackout_time).timeout
 	screen_animator.play("screen_fade_in")
 	await screen_animator.animation_finished
@@ -82,19 +82,19 @@ func fade_screen_in():
 	screen_cleared.emit()
 
 
-func on_game_over():
+func on_game_over() -> void:
 	screen_animator.play("game_over")
 
 
-func play_game_over_bgm():
+func play_game_over_bgm() -> void:
 	SoundManager.play_bgm(SoundManager.BGM_LIB[SoundManager.BGM_LIST.BGM_GAME_OVER])
 
 
-func on_game_complete():
+func on_game_complete() -> void:
 	screen_animator.play("game_complete")
 
 
-func play_game_complete_bgm():
+func play_game_complete_bgm() -> void:
 	SoundManager.play_bgm(SoundManager.BGM_LIB[SoundManager.BGM_LIST.BGM_GAME_COMPLETE])
 
 
@@ -117,5 +117,5 @@ func _on_game_complete_restart_button_pressed() -> void:
 	GameMaster.respawn_player.call_deferred()
 
 
-func set_anim_just_finished(anim_name: StringName):
+func set_anim_just_finished(anim_name: StringName) -> void:
 	anim_just_finished = anim_name

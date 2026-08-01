@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://jpifec0xkcu7"]
+[gd_scene format=3 uid="uid://jpifec0xkcu7"]
 
 [ext_resource type="Script" uid="uid://bn5plhipq0cmf" path="res://Treasures/TreasureObject.gd" id="1_c0nkl"]
 
@@ -24,7 +24,7 @@ _data = {
 &"wait_allow_pick_up": SubResource("Animation_tg8fx")
 }
 
-[node name="Treasure" type="RigidBody3D"]
+[node name="Treasure" type="RigidBody3D" unique_id=782685260]
 collision_layer = 4
 collision_mask = 271
 input_ray_pickable = false
@@ -32,11 +32,9 @@ linear_damp = 0.5
 angular_damp = 3.0
 script = ExtResource("1_c0nkl")
 
-[node name="Hitbox" type="CollisionShape3D" parent="."]
+[node name="Hitbox" type="CollisionShape3D" parent="." unique_id=425173974]
 unique_name_in_owner = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=170899533]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_esmnb")
-}
+libraries/ = SubResource("AnimationLibrary_esmnb")

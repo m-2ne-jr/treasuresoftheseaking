@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://do5qopekk6ijm"]
+[gd_scene format=3 uid="uid://do5qopekk6ijm"]
 
 [ext_resource type="PackedScene" uid="uid://d0ioa5gglk2rx" path="res://Environment/Beach/sandbank.glb" id="1_p5anq"]
 
-[node name="SandBank" type="Node3D"]
+[node name="SandBank" type="Node3D" unique_id=1376788970]
 
-[node name="sandbank" parent="." instance=ExtResource("1_p5anq")]
+[node name="sandbank" parent="." unique_id=610948395 instance=ExtResource("1_p5anq")]

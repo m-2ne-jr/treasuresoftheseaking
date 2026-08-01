@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://csrjrtmfmhn8d"]
+[gd_scene format=3 uid="uid://csrjrtmfmhn8d"]
 
 [ext_resource type="PackedScene" uid="uid://bsa6vj64ygps6" path="res://Treasures/Pearl/pearl.glb" id="1_7qdou"]
 
-[node name="Pearl" type="Node3D"]
+[node name="Pearl" type="Node3D" unique_id=554884843]
 
-[node name="pearl" parent="." instance=ExtResource("1_7qdou")]
+[node name="pearl" parent="." unique_id=1735132771 instance=ExtResource("1_7qdou")]

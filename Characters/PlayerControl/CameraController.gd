@@ -11,11 +11,11 @@ const CAMERA_Y_MIN_DEG := -60
 const CAMERA_Y_MAX_DEG := 30
 
 func _ready() -> void:
-	position = get_parent().position + Vector3(0, cam_offset, 0)
+	position = (get_parent() as Node3D).position + Vector3(0, cam_offset, 0)
 	
-	SignalBus.player_respawned.connect(set_camera_movement.bind(false))
-	SignalBus.player_ready.connect(set_camera_movement.bind(true))
-	SignalBus.game_over.connect(set_camera_movement.bind(false))
+	ErrorHelper.try(SignalBus.player_respawned.connect(set_camera_movement.bind(false)))
+	ErrorHelper.try(SignalBus.player_ready.connect(set_camera_movement.bind(true)))
+	ErrorHelper.try(SignalBus.game_over.connect(set_camera_movement.bind(false)))
 	
 	set_camera_movement.call_deferred(true)
 	
@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 		input_y = Input.get_axis("camera_left", "camera_right")
 	
 	if input_x || input_y:
-		var clamped_x = clamp(
+		var clamped_x: float = clampf(
 			global_rotation_degrees.x + input_x * senstivity,
 			CAMERA_Y_MIN_DEG, 
 			CAMERA_Y_MAX_DEG
@@ -36,9 +36,10 @@ func _physics_process(_delta: float) -> void:
 		global_rotation.x = deg_to_rad(clamped_x)
 		global_rotation.y += deg_to_rad(input_y * senstivity)
 
-	var offsetPos = Vector3(0, cam_offset, 0)
-	if position.distance_to(get_parent().position + offsetPos) > CAMERA_MARGIN:
-		position = position.lerp(get_parent().position + offsetPos, interpolation_speed)
+	var offsetPos: Vector3 = Vector3(0, cam_offset, 0)
+	var parent: Node3D = get_parent()
+	if position.distance_to(parent.position + offsetPos) > CAMERA_MARGIN:
+		position = position.lerp(parent.position + offsetPos, interpolation_speed)
 
-func set_camera_movement(state: bool):
+func set_camera_movement(state: bool) -> void:
 	can_move = state

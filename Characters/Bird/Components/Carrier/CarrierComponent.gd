@@ -17,10 +17,10 @@ signal treasure_drop_successful
 signal carry_limit_reached(is_maxed: bool)
 
 func _ready() -> void:
-	SignalBus.treasure_list_changed.connect(set_point_positions)
-	SignalBus.treasure_list_changed.connect(check_carry_limit)
-	SignalBus.player_died.connect(drop_all_treasures)
-	SignalBus.game_over.connect(drop_all_treasures)
+	ErrorHelper.try(SignalBus.treasure_list_changed.connect(set_point_positions))
+	ErrorHelper.try(SignalBus.treasure_list_changed.connect(check_carry_limit))
+	ErrorHelper.try(SignalBus.player_died.connect(drop_all_treasures))
+	ErrorHelper.try(SignalBus.game_over.connect(drop_all_treasures))
 
 
 func _on_treasure_picked_up(treasure_object: TreasureObject) -> void:
@@ -30,12 +30,12 @@ func _on_treasure_picked_up(treasure_object: TreasureObject) -> void:
 		SignalBus.treasure_acquired.emit(false)
 		return
 	
-	var treasure = treasure_object.treasure.get_instance()
+	var treasure: Treasure = treasure_object.treasure.get_instance()
 	
 	var pickup_sfx := SoundManager.SFX_LIB[SoundManager.SFX_LIST.SFX_TREASURE_PICKUP]
 	SoundManager.play_sound(pickup_sfx)
 	
-	TreasurePool.return_object_to_pool(treasure_object)
+	TreasurePool.instance.return_object_to_pool(treasure_object)
 	SignalBus.treasure_object_cleared.emit()
 	
 	add_treasure_to_list(treasure)
@@ -48,7 +48,7 @@ func _on_nest_entered(area: Area3D) -> void:
 	if !area is Nest:
 		return
 	
-	var nest = area as Nest
+	var nest: Nest = area as Nest
 	nest.play_animation()
 	
 	var sfx: AudioStream
@@ -61,10 +61,11 @@ func _on_nest_entered(area: Area3D) -> void:
 	GameMaster.current_points += current_held_score
 	
 	for i in range(active_treasures.size(), 0, -1):
-		remove_treasure_from_list(active_treasures.keys()[i - 1])
+		var t: Treasure = active_treasures.keys()[i - 1]
+		remove_treasure_from_list(t)
 
 
-func on_treasure_drop_requested(current_speed: float):
+func on_treasure_drop_requested(current_speed: float) -> void:
 	if active_treasures.is_empty():
 		return
 	
@@ -73,14 +74,14 @@ func on_treasure_drop_requested(current_speed: float):
 	treasure_drop_successful.emit()
 
 
-func drop_treasure(current_speed: float):
+func drop_treasure(current_speed: float) -> void:
 	var index: int = active_treasures.size() - 1
 	var treasure_to_drop: Treasure = active_treasures.keys()[index]
 	treasure_spawner.spawn_treasure_with_force(treasure_to_drop, current_speed)
 	remove_treasure_from_list(treasure_to_drop)
 
 
-func drop_all_treasures():
+func drop_all_treasures() -> void:
 	if active_treasures.is_empty():
 		return
 	for i in range(active_treasures.size(), 0, -1):
@@ -89,8 +90,8 @@ func drop_all_treasures():
 		remove_treasure_from_list(treasure)
 
 
-func add_treasure_to_list(treasure: Treasure):
-	var point = carry_point.instantiate() as CarryPoint
+func add_treasure_to_list(treasure: Treasure) -> void:
+	var point: CarryPoint = carry_point.instantiate()
 	var container: Node3D = get_least_occupied_container()
 	container.add_child(point)
 	active_treasures.get_or_add(treasure, point)
@@ -99,21 +100,23 @@ func add_treasure_to_list(treasure: Treasure):
 	SignalBus.treasure_list_changed.emit(active_treasures.keys())
 
 
-func remove_treasure_from_list(treasure: Treasure):
+func remove_treasure_from_list(treasure: Treasure) -> void:
 	active_treasures[treasure].queue_free()
-	active_treasures.erase(treasure)
+	if !active_treasures.erase(treasure):
+		return
+	
 	change_held_score(-treasure.value)
 	SignalBus.treasure_list_changed.emit(active_treasures.keys())
 
 
-func change_held_score(value: int):
+func change_held_score(value: int) -> void:
 	current_held_score += value
 	SignalBus.held_score_changed.emit(current_held_score)
 
 
-func set_point_positions(_treasure_list: Array[Treasure]):
+func set_point_positions(_treasure_list: Array[Treasure]) -> void:
 	for carry_container: Node3D in carry_containers:
-		var child_points = carry_container.get_children()
+		var child_points: Array[Node] = carry_container.get_children()
 		var total_offset: float = 0
 		
 		const MARGIN_PERCENT := 0.5
@@ -122,12 +125,12 @@ func set_point_positions(_treasure_list: Array[Treasure]):
 			var point: CarryPoint = child_points[index] as CarryPoint
 			point.position.y = 0
 		
-			var self_margin = point.carried_treasure.position_offset * MARGIN_PERCENT
+			var self_margin: float = point.carried_treasure.position_offset * MARGIN_PERCENT
 			total_offset += self_margin
 		
 			if index > 0:
 				var point_below: CarryPoint = child_points[index - 1] as CarryPoint
-				var below_margin = point_below.carried_treasure.position_offset * MARGIN_PERCENT
+				var below_margin: float = point_below.carried_treasure.position_offset * MARGIN_PERCENT
 				total_offset += below_margin
 		
 			point.position.y += total_offset
@@ -147,6 +150,6 @@ func get_least_occupied_container() -> Node3D:
 	return container
 
 
-func check_carry_limit(treasure_list: Array[Treasure]):
+func check_carry_limit(treasure_list: Array[Treasure]) -> void:
 	var is_maxed: bool = treasure_list.size() >= GameMaster.carry_limit
 	carry_limit_reached.emit(is_maxed)

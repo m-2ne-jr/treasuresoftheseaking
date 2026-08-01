@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://j2gn0yxv0umb"]
+[gd_scene format=3 uid="uid://j2gn0yxv0umb"]
 
 [ext_resource type="Script" uid="uid://bcvwsd8bth5dk" path="res://UI/UI_Root.gd" id="1_cd47j"]
 [ext_resource type="LabelSettings" uid="uid://2ye0twb5n8fe" path="res://UI/TextLabelSettings.tres" id="2_wq2fl"]
@@ -718,18 +718,19 @@ _data = {
 &"screen_fade_out": SubResource("Animation_v0xy3")
 }
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" unique_id=1306445453]
 script = ExtResource("1_cd47j")
 
-[node name="UpperLeft" type="Control" parent="."]
+[node name="UpperLeft" type="Control" parent="." unique_id=1012862313]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
+scale = Vector2(0.75, 0.75)
 size_flags_horizontal = 0
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UpperLeft"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UpperLeft" unique_id=678499755]
 layout_mode = 1
 offset_left = 17.0
 offset_top = 13.0
@@ -737,26 +738,26 @@ offset_right = 238.0
 offset_bottom = 164.0
 mouse_filter = 2
 
-[node name="TimeBox" type="Control" parent="UpperLeft/VBoxContainer"]
+[node name="TimeBox" type="Control" parent="UpperLeft/VBoxContainer" unique_id=2053020150]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="TimeLabel" type="Label" parent="UpperLeft/VBoxContainer/TimeBox"]
+[node name="TimeLabel" type="Label" parent="UpperLeft/VBoxContainer/TimeBox" unique_id=124361571]
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 1
-offset_left = 12.0
+offset_left = 7.0
 offset_top = 1.0
-offset_right = 112.0
+offset_right = 48.0
 offset_bottom = 35.0
 size_flags_horizontal = 8
 text = "111"
 label_settings = ExtResource("2_wq2fl")
 vertical_alignment = 1
 
-[node name="Foreground" type="ColorRect" parent="UpperLeft/VBoxContainer/TimeBox"]
+[node name="Foreground" type="ColorRect" parent="UpperLeft/VBoxContainer/TimeBox" unique_id=1391060720]
 z_index = 1
 layout_mode = 1
 offset_right = 200.0
@@ -764,7 +765,7 @@ offset_bottom = 36.0
 mouse_filter = 2
 color = Color(0, 0.6666665, 1, 1)
 
-[node name="Background" type="ColorRect" parent="UpperLeft/VBoxContainer/TimeBox"]
+[node name="Background" type="ColorRect" parent="UpperLeft/VBoxContainer/TimeBox" unique_id=1575549037]
 layout_mode = 1
 offset_left = 12.0
 offset_top = 12.0
@@ -773,26 +774,26 @@ offset_bottom = 48.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ScoreBox" type="Control" parent="UpperLeft/VBoxContainer"]
+[node name="ScoreBox" type="Control" parent="UpperLeft/VBoxContainer" unique_id=1997199579]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="ScoreLabel" type="Label" parent="UpperLeft/VBoxContainer/ScoreBox"]
+[node name="ScoreLabel" type="Label" parent="UpperLeft/VBoxContainer/ScoreBox" unique_id=1425816372]
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 1
-offset_left = 12.0
+offset_left = 7.0
 offset_top = 1.0
-offset_right = 112.0
+offset_right = 32.0
 offset_bottom = 35.0
 size_flags_vertical = 3
 text = "/"
 label_settings = ExtResource("2_wq2fl")
 vertical_alignment = 1
 
-[node name="Foreground" type="ColorRect" parent="UpperLeft/VBoxContainer/ScoreBox"]
+[node name="Foreground" type="ColorRect" parent="UpperLeft/VBoxContainer/ScoreBox" unique_id=2043405809]
 z_index = 1
 layout_mode = 1
 offset_right = 200.0
@@ -800,7 +801,7 @@ offset_bottom = 36.0
 mouse_filter = 2
 color = Color(0, 0.6666665, 1, 1)
 
-[node name="Background" type="ColorRect" parent="UpperLeft/VBoxContainer/ScoreBox"]
+[node name="Background" type="ColorRect" parent="UpperLeft/VBoxContainer/ScoreBox" unique_id=88666121]
 layout_mode = 1
 offset_left = 12.0
 offset_top = 12.0
@@ -809,19 +810,19 @@ offset_bottom = 48.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CurrentScoreBox" type="Control" parent="UpperLeft/VBoxContainer"]
+[node name="CurrentScoreBox" type="Control" parent="UpperLeft/VBoxContainer" unique_id=704636829]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="CurrentScoreLabel" type="Label" parent="UpperLeft/VBoxContainer/CurrentScoreBox"]
+[node name="CurrentScoreLabel" type="Label" parent="UpperLeft/VBoxContainer/CurrentScoreBox" unique_id=2116288908]
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 1
-offset_left = 12.0
+offset_left = 7.0
 offset_top = 1.0
-offset_right = 112.0
+offset_right = 34.0
 offset_bottom = 35.0
 size_flags_horizontal = 0
 size_flags_vertical = 6
@@ -829,7 +830,7 @@ text = "+3"
 label_settings = ExtResource("2_wq2fl")
 vertical_alignment = 1
 
-[node name="Foreground" type="ColorRect" parent="UpperLeft/VBoxContainer/CurrentScoreBox"]
+[node name="Foreground" type="ColorRect" parent="UpperLeft/VBoxContainer/CurrentScoreBox" unique_id=343435028]
 z_index = 1
 layout_mode = 1
 offset_right = 200.0
@@ -837,7 +838,7 @@ offset_bottom = 36.0
 mouse_filter = 2
 color = Color(0, 0.6666665, 1, 1)
 
-[node name="Background" type="ColorRect" parent="UpperLeft/VBoxContainer/CurrentScoreBox"]
+[node name="Background" type="ColorRect" parent="UpperLeft/VBoxContainer/CurrentScoreBox" unique_id=1314436342]
 layout_mode = 1
 offset_left = 12.0
 offset_top = 12.0
@@ -846,7 +847,7 @@ offset_bottom = 48.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="LowerRight" type="Control" parent="."]
+[node name="LowerRight" type="Control" parent="." unique_id=2017355104]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 3
@@ -857,11 +858,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.75, 0.75)
 size_flags_horizontal = 8
 size_flags_vertical = 8
 mouse_filter = 2
 
-[node name="CarryCountLabel" type="Label" parent="LowerRight"]
+[node name="CarryCountLabel" type="Label" parent="LowerRight" unique_id=281585456]
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 0
@@ -876,7 +878,7 @@ label_settings = ExtResource("2_wq2fl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BackgroundRect" type="Control" parent="LowerRight"]
+[node name="BackgroundRect" type="Control" parent="LowerRight" unique_id=1165689294]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -891,7 +893,7 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="Foreground" type="ColorRect" parent="LowerRight/BackgroundRect"]
+[node name="Foreground" type="ColorRect" parent="LowerRight/BackgroundRect" unique_id=911604241]
 z_index = 1
 layout_mode = 1
 offset_right = 200.0
@@ -899,7 +901,7 @@ offset_bottom = 42.0
 mouse_filter = 2
 color = Color(0, 0.6666665, 1, 1)
 
-[node name="Background" type="ColorRect" parent="LowerRight/BackgroundRect"]
+[node name="Background" type="ColorRect" parent="LowerRight/BackgroundRect" unique_id=1216884078]
 layout_mode = 1
 offset_left = 12.0
 offset_top = 12.0
@@ -908,13 +910,11 @@ offset_bottom = 54.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CarryLabelAnimator" type="AnimationPlayer" parent="LowerRight"]
+[node name="CarryLabelAnimator" type="AnimationPlayer" parent="LowerRight" unique_id=1205132975]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_8bgv5")
-}
+libraries/ = SubResource("AnimationLibrary_8bgv5")
 
-[node name="GameOver" type="VBoxContainer" parent="."]
+[node name="GameOver" type="VBoxContainer" parent="." unique_id=106429975]
 z_index = 16
 anchors_preset = -1
 anchor_top = 0.54200006
@@ -928,34 +928,34 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 mouse_filter = 2
 
-[node name="GameOverLabel" type="Label" parent="GameOver"]
+[node name="GameOverLabel" type="Label" parent="GameOver" unique_id=300410031]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 label_settings = SubResource("LabelSettings_tbn6g")
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="GameOver"]
+[node name="Control" type="Control" parent="GameOver" unique_id=177013506]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GameOver"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOver" unique_id=1151121245]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Spacer01" type="Control" parent="GameOver/HBoxContainer"]
+[node name="Spacer01" type="Control" parent="GameOver/HBoxContainer" unique_id=1020080240]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="Spacer02" type="Control" parent="GameOver/HBoxContainer"]
+[node name="Spacer02" type="Control" parent="GameOver/HBoxContainer" unique_id=1728847970]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="GameRestartButton" type="Button" parent="GameOver/HBoxContainer"]
+[node name="GameRestartButton" type="Button" parent="GameOver/HBoxContainer" unique_id=1463401689]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -972,17 +972,17 @@ shortcut_in_tooltip = false
 text = "Retry
 "
 
-[node name="Spacer03" type="Control" parent="GameOver/HBoxContainer"]
+[node name="Spacer03" type="Control" parent="GameOver/HBoxContainer" unique_id=890429284]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="Spacer04" type="Control" parent="GameOver/HBoxContainer"]
+[node name="Spacer04" type="Control" parent="GameOver/HBoxContainer" unique_id=1491814951]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="Winner" type="Control" parent="."]
+[node name="Winner" type="Control" parent="." unique_id=1595012119]
 z_index = 16
 layout_mode = 3
 anchor_top = 0.54200006
@@ -995,7 +995,7 @@ grow_vertical = 2
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="GameCompleteLabel" type="Label" parent="Winner"]
+[node name="GameCompleteLabel" type="Label" parent="Winner" unique_id=904143834]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 14
@@ -1011,7 +1011,7 @@ text = "GAME OVER"
 label_settings = SubResource("LabelSettings_tbn6g")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Winner"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Winner" unique_id=459863989]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -1024,17 +1024,17 @@ grow_vertical = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Spacer01" type="Control" parent="Winner/HBoxContainer"]
+[node name="Spacer01" type="Control" parent="Winner/HBoxContainer" unique_id=1517219278]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="Spacer02" type="Control" parent="Winner/HBoxContainer"]
+[node name="Spacer02" type="Control" parent="Winner/HBoxContainer" unique_id=143206976]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="GameRestartButton" type="Button" parent="Winner/HBoxContainer"]
+[node name="GameRestartButton" type="Button" parent="Winner/HBoxContainer" unique_id=1762834001]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1051,17 +1051,17 @@ shortcut_in_tooltip = false
 text = "Play Again
 "
 
-[node name="Spacer03" type="Control" parent="Winner/HBoxContainer"]
+[node name="Spacer03" type="Control" parent="Winner/HBoxContainer" unique_id=873309746]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="Spacer04" type="Control" parent="Winner/HBoxContainer"]
+[node name="Spacer04" type="Control" parent="Winner/HBoxContainer" unique_id=546824502]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="ScreenFade" type="ColorRect" parent="."]
+[node name="ScreenFade" type="ColorRect" parent="." unique_id=756849900]
 unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -1073,11 +1073,9 @@ size_flags_vertical = 3
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="ScreenAnimator" type="AnimationPlayer" parent="."]
+[node name="ScreenAnimator" type="AnimationPlayer" parent="." unique_id=1636336802]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_qc66k")
-}
+libraries/ = SubResource("AnimationLibrary_qc66k")
 
 [connection signal="pressed" from="GameOver/HBoxContainer/GameRestartButton" to="." method="_on_game_over_restart_button_pressed"]
 [connection signal="pressed" from="Winner/HBoxContainer/GameRestartButton" to="." method="_on_game_complete_restart_button_pressed"]

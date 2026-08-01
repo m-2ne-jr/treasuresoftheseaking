@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgdvyk6n5b8pi"]
+[gd_scene format=3 uid="uid://dgdvyk6n5b8pi"]
 
 [ext_resource type="Script" uid="uid://ddtkhchpavuub" path="res://Characters/Bird/Components/Carrier/CarryPoint.gd" id="1_kgwdj"]
 
@@ -30,13 +30,11 @@ _data = {
 &"rotate_point": SubResource("Animation_kgwdj")
 }
 
-[node name="CarryPoint" type="Node3D"]
+[node name="CarryPoint" type="Node3D" unique_id=383526922]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("1_kgwdj")
 metadata/IsCarrying = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=340089409]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_2tejq")
-}
+libraries/ = SubResource("AnimationLibrary_2tejq")

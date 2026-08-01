@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cvnmnk8qxlhqg"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cvnmnk8qxlhqg"]
 
 [ext_resource type="Shader" uid="uid://omyv7wtxsxgg" path="res://Environment/Wave/wave_shader.tres" id="1_gtwk3"]
 

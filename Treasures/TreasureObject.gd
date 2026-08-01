@@ -15,10 +15,10 @@ signal pickup_ready(treasure_object: TreasureObject)
 @export_flags_3d_physics var collision_mask_layers: int = 15
 
 func _ready() -> void:
-	SignalBus.treasure_object_cleared.connect(reactivate_physics)
+	ErrorHelper.try(SignalBus.treasure_object_cleared.connect(reactivate_physics))
 
 
-func activate_object(new_treasure: Treasure):
+func activate_object(new_treasure: Treasure) -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT
 	treasure = new_treasure
 	mass = treasure.weight
@@ -28,7 +28,7 @@ func activate_object(new_treasure: Treasure):
 	add_child(visual_instance)
 
 
-func reset_object():
+func reset_object() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	
 	if visual_instance == null:
@@ -36,11 +36,11 @@ func reset_object():
 	visual_instance.queue_free()
 
 
-func allow_pick_up():
+func allow_pick_up() -> void:
 	can_be_picked_up = true
 	collision_mask = collision_mask_layers
 	pickup_ready.emit(self)
 
 
-func reactivate_physics():
+func reactivate_physics() -> void:
 	sleeping = false

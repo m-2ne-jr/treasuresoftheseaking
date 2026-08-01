@@ -45,19 +45,19 @@ var _max_wave_time := 9.0
 var _wave_timer := Timer.new()
 
 func _ready() -> void:
-	SignalBus.game_over.connect(stop_bgm)
+	ErrorHelper.try(SignalBus.game_over.connect(stop_bgm))
 	
 	add_child(_bgm_player)
 	_bgm_player.volume_db = _default_volume_bgm
 	
 	add_child(_wave_stream_player)
 	add_child(_wave_timer)
-	_wave_timer.timeout.connect(play_wave_sound)
+	ErrorHelper.try(_wave_timer.timeout.connect(play_wave_sound))
 	
 	play_wave_sound.call_deferred()
 
 
-func play_sound(sound: AudioStream, set_single_instance: bool = false):
+func play_sound(sound: AudioStream, set_single_instance: bool = false) -> void:
 	var sfx_player := AudioStreamPlayer.new()
 	if _audio_instance != null and set_single_instance:
 		return
@@ -67,24 +67,24 @@ func play_sound(sound: AudioStream, set_single_instance: bool = false):
 	
 	sfx_player.stream = sound
 	sfx_player.volume_db = _default_volume_sfx
-	sfx_player.finished.connect(sfx_player.queue_free)
+	ErrorHelper.try(sfx_player.finished.connect(sfx_player.queue_free))
 	
 	sfx_player.play()
 
 
-func play_wave_sound():
+func play_wave_sound() -> void:
 	_wave_stream_player.stream = SFX_LIB[SFX_LIST.SFX_WAVE]
 	_wave_stream_player.volume_db = _wave_volume
 	_wave_stream_player.play()
 	
-	var wave_time = randf_range(_min_wave_time, _max_wave_time)
+	var wave_time: float = randf_range(_min_wave_time, _max_wave_time)
 	_wave_timer.start(wave_time)
 
 
-func play_bgm(bgm: AudioStream):
+func play_bgm(bgm: AudioStream) -> void:
 	_bgm_player.stream = bgm
 	_bgm_player.play()
 
 
-func stop_bgm():
+func stop_bgm() -> void:
 	_bgm_player.stop()

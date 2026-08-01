@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://jlpb6fo1fvit"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://jlpb6fo1fvit"]
 
 [ext_resource type="Texture2D" uid="uid://cq2wkd6niolxp" path="res://Characters/Bird/sandpiper_bird_leg_tex.png" id="1_gwpyf"]
 

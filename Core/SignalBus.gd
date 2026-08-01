@@ -34,7 +34,7 @@ signal treasures_being_spawned(state: bool)
 signal spawn_initial_treasures
 
 func _ready() -> void:
-	treasure_list_changed.connect(on_treasure_list_changed)
+	ErrorHelper.try(treasure_list_changed.connect(on_treasure_list_changed))
 
-func on_treasure_list_changed(treasure_list: Array[Treasure]):
+func on_treasure_list_changed(treasure_list: Array[Treasure]) -> void:
 	carry_count_updated.emit(treasure_list.size())

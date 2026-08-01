@@ -5,4 +5,4 @@ func destroy_object(obj: Node3D) -> void:
 	if !obj is TreasureObject:
 		obj.queue_free()
 		return
-	TreasurePool.return_object_to_pool(obj)
+	TreasurePool.instance.return_object_to_pool(obj as TreasureObject)
