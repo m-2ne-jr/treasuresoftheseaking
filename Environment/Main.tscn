@@ -36,11 +36,10 @@ sky_material = SubResource("ShaderMaterial_346fj")
 background_mode = 2
 sky = SubResource("Sky_0sclb")
 ambient_light_source = 2
-ambient_light_color = Color(1, 0.92, 0.88, 1)
+ambient_light_color = Color(0.6600311, 0.574026, 0.55924624, 1)
 ambient_light_sky_contribution = 0.0
-ambient_light_energy = 0.5
 reflected_light_source = 1
-tonemap_exposure = 0.7
+tonemap_exposure = 0.76
 ssao_radius = 0.5
 ssao_intensity = 5.0
 sdfgi_use_occlusion = true
@@ -468,15 +467,17 @@ environment = SubResource("Environment_50glp")
 transform = Transform3D(1, 0, 0, 0, -0.28568834, 0.9583226, 0, -0.9583226, -0.28568834, 0, 0, 0)
 light_color = Color(0.65, 0.645125, 0.5915, 1)
 light_energy = 0.5
+light_bake_mode = 1
 shadow_enabled = true
-shadow_bias = 1.0
-shadow_opacity = 0.95
+shadow_bias = 0.5
+directional_shadow_mode = 0
 directional_shadow_split_1 = 0.02
 directional_shadow_split_2 = 0.069
 directional_shadow_split_3 = 0.265
 directional_shadow_blend_splits = true
-directional_shadow_max_distance = 250.0
-directional_shadow_pancake_size = 5.0
+directional_shadow_fade_start = 0.4
+directional_shadow_max_distance = 20.0
+directional_shadow_pancake_size = 0.0
 
 [node name="Walls" type="Node3D" parent="." unique_id=613960339]
 
