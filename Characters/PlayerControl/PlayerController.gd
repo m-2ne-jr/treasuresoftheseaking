@@ -1,9 +1,10 @@
 class_name PlayerController
 extends CharacterBody3D
 
-@onready var cam_pivot: Node3D = %CameraPivot
+@onready var cam_pivot: CameraController = %CameraPivot
 @onready var skin: Node3D = %Skin
 
+@onready var control_manager: ControlManager = $ControlManager
 @onready var animator: AnimatorComponent = %AnimatorComponent
 @onready var hitbox_area: Area3D = %HitboxArea
 @onready var ragdoll: RagdollComponent = $RagdollComponent
@@ -30,29 +31,43 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var input_dir := Vector2.ZERO
-	if can_act:
-		input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	var input_dir: Vector2 = get_input_direction()
+	var direction: Vector3 = get_movement_direction(input_dir)
+	animator.set_movement_state(direction)
+	current_speed = get_current_velocity(direction, delta)
+	cam_pivot.follow_target(self)
 	
+	if !can_act:
+		return
+	
+	move_and_slide()
+	
+	if direction.length() > DIR_DEADZONE:
+		rotate_skin_to_direction(Vector2(direction.x, direction.z))
+
+
+func get_input_direction() -> Vector2:
+	if !can_act:
+		return Vector2.ZERO
+	return control_manager.get_movement_schema_input(control_manager.current_scheme)
+
+
+func get_movement_direction(input: Vector2) -> Vector3:
 	var right: Vector3 = cam_pivot.global_basis.x
 	var forward: Vector3 = cam_pivot.global_basis.z
 	
-	var direction: Vector3 = input_dir.x * right + input_dir.y * forward
+	var direction: Vector3 = input.x * right + input.y * forward
 	direction.y = 0
-	direction = direction.normalized()
-		
+	return direction.normalized()
+
+
+func get_current_velocity(direction: Vector3, delta: float) -> float:
 	var cached_y_velocity: float = velocity.y
 	velocity.y = 0
 	velocity = velocity.move_toward(direction * max_speed, delta * ACCELERATION)
 	velocity.y = cached_y_velocity + get_gravity().y * delta
 	
-	current_speed = velocity.length()
-	
-	move_and_slide()
-	animator.set_movement_state(direction)
-	
-	if direction.length() > DIR_DEADZONE:
-		rotate_skin_to_direction(Vector2(direction.x, direction.z))
+	return velocity.length()
 
 
 func rotate_skin_to_direction(dir: Vector2) -> void:
@@ -70,6 +85,17 @@ func rotate_skin_to_direction(dir: Vector2) -> void:
 			new_rotation,
 			SKIN_ROT_LERP_WEIGHT
 		)
+
+
+func _input(event: InputEvent) -> void:
+	const MAGNITUDE: float = 0.05
+	
+	cam_pivot.rotate_camera(
+		control_manager.get_camera_schema_input(
+			control_manager.current_scheme,
+			event
+		) * MAGNITUDE
+	)
 
 
 func _unhandled_input(event: InputEvent) -> void:
