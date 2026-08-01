@@ -46,10 +46,6 @@ window/use_filter=false
 
 project/assembly_name="TreasuresOfTheSeaKing"
 
-[gui]
-
-fonts/dynamic_fonts/use_oversampling=false
-
 [input]
 
 move_left={

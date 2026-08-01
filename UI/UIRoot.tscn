@@ -724,6 +724,7 @@ script = ExtResource("1_cd47j")
 [node name="UpperLeft" type="Control" parent="." unique_id=1012862313]
 unique_name_in_owner = true
 z_index = 1
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 scale = Vector2(0.75, 0.75)
@@ -850,6 +851,7 @@ color = Color(0, 0, 0, 1)
 [node name="LowerRight" type="Control" parent="." unique_id=2017355104]
 unique_name_in_owner = true
 z_index = 1
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -916,6 +918,7 @@ libraries/ = SubResource("AnimationLibrary_8bgv5")
 
 [node name="GameOver" type="VBoxContainer" parent="." unique_id=106429975]
 z_index = 16
+texture_filter = 1
 anchors_preset = -1
 anchor_top = 0.54200006
 anchor_right = 1.0
@@ -984,6 +987,7 @@ mouse_filter = 2
 
 [node name="Winner" type="Control" parent="." unique_id=1595012119]
 z_index = 16
+texture_filter = 1
 layout_mode = 3
 anchor_top = 0.54200006
 anchor_right = 1.0
@@ -1063,6 +1067,7 @@ mouse_filter = 2
 
 [node name="ScreenFade" type="ColorRect" parent="." unique_id=756849900]
 unique_name_in_owner = true
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

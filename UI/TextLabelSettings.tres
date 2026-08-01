@@ -1,4 +1,14 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://2ye0twb5n8fe"]
 
+[sub_resource type="SystemFont" id="SystemFont_xq07i"]
+font_names = PackedStringArray("Segoe UI", "Trebuchet MS", "Sans-Serif")
+font_weight = 700
+subpixel_positioning = 2
+oversampling = 1.5
+
 [resource]
+font = SubResource("SystemFont_xq07i")
 font_size = 24
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.70980394)
+shadow_offset = Vector2(2, 1.6)
