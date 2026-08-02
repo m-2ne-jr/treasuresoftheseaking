@@ -43,7 +43,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if direction.length() > DIR_DEADZONE:
-		rotate_skin_to_direction(Vector2(direction.x, direction.z))
+		rotate_skin_to_direction(Vector2(direction.x, direction.z))	
+	
+	if control_manager.current_scheme != ControlManager.Schema.KEYBOARD_ONLY:
+		return
+	
+	var cam_input: Vector2 = control_manager.get_camera_schema_input(control_manager.current_scheme)
+	cam_pivot.rotate_camera(cam_input)
 
 
 func get_input_direction() -> Vector2:
@@ -56,7 +62,7 @@ func get_movement_direction(input: Vector2) -> Vector3:
 	var right: Vector3 = cam_pivot.global_basis.x
 	var forward: Vector3 = cam_pivot.global_basis.z
 	
-	var direction: Vector3 = input.x * right + input.y * forward
+	var direction: Vector3 = (input.x * right) + (input.y * forward)
 	direction.y = 0
 	return direction.normalized()
 
@@ -88,14 +94,17 @@ func rotate_skin_to_direction(dir: Vector2) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	const MAGNITUDE: float = 0.05
+	if !(event is InputEventMouseMotion):
+		return
 	
-	cam_pivot.rotate_camera(
-		control_manager.get_camera_schema_input(
-			control_manager.current_scheme,
-			event
-		) * MAGNITUDE
-	)
+	var curr_scheme: ControlManager.Schema = control_manager.current_scheme
+	if curr_scheme == ControlManager.Schema.KEYBOARD_ONLY:
+		return
+	
+	const MOUSE_SENSITIVITY_FACTOR: float = 0.04
+	
+	var cam_input: Vector2 = control_manager.get_camera_schema_input(curr_scheme, event)
+	cam_pivot.rotate_camera(cam_input * MOUSE_SENSITIVITY_FACTOR)
 
 
 func _unhandled_input(event: InputEvent) -> void:
