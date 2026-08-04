@@ -7,7 +7,7 @@ enum Schema {
 	MOUSE_ONLY
 }
 
-const DEFAULT_SCHEME = Schema.KEYBOARD_ONLY
+const DEFAULT_SCHEME = Schema.KEYBOARD_HYBRID
 var current_scheme: Schema:
 	set(new_scheme):
 		match new_scheme:
