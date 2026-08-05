@@ -130,11 +130,13 @@ func get_speed_modifier(treasure_list: Array[Treasure]) -> float:
 
 
 func _on_carry_limit_reached(is_maxed: bool) -> void:
-	const MASK_NO_TREASURE := 266
-	const MASK_TREASURE := 270
+	const TREASURE_BIT: int = 2
 	
-	# You want treasure collision active when maxed out.
-	collision_mask = MASK_TREASURE if is_maxed else MASK_NO_TREASURE
+	# You want treasure collision active when maxed out.'
+	if is_maxed:
+		collision_mask = collision_mask | (1 << TREASURE_BIT)
+	else:
+		collision_mask = collision_mask & ~(1 << TREASURE_BIT)
 
 
 func _on_hitbox_area_entered(_area: Area3D) -> void:

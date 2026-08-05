@@ -36,15 +36,17 @@ func clear_pool() -> void:
 func get_object_from_pool(treasure: Treasure) -> TreasureObject:
 	if treasure_pool.is_empty():
 		extend_pool(POOL_SIZE_INCREMENT)
-	var front_treasure: TreasureObject = treasure_pool.pop_front()
-	front_treasure.activate_object(treasure)
-	return front_treasure
+	var front_idx: int = treasure_pool.find_custom(_first_free_object)
+	var front: TreasureObject = treasure_pool[front_idx]
+	front.activate_object(treasure)
+	return front
 
 
 func extend_pool(new_obj_count: int) -> void:
 	for i in new_obj_count:
-		var treasure_obj: TreasureObject = TREASURE_OBJECT_SCENE.instantiate() as TreasureObject
+		var treasure_obj: TreasureObject = TREASURE_OBJECT_SCENE.instantiate()
 		add_child(treasure_obj)
+		treasure_pool.append(treasure_obj)
 		return_object_to_pool(treasure_obj)
 
 
@@ -53,4 +55,7 @@ func return_object_to_pool(treasure: TreasureObject) -> void:
 	treasure.global_position = Vector3.ZERO
 	treasure.global_rotation = Vector3.ZERO
 	treasure.scale = Vector3.ONE
-	treasure_pool.append(treasure)
+
+
+func _first_free_object(t_obj: TreasureObject) -> bool:
+	return t_obj.is_available

@@ -13,7 +13,7 @@ var drop_scale_factor := 0.5
 
 func spawn_treasure_with_force(treasure: Treasure, speed: float) -> void:
 	var new_object: TreasureObject = setup_treasure_object(treasure)
-	new_object.animation_player.play("wait_allow_pick_up")
+	new_object.wait_for_pickup()
 	
 	var modified_speed: float = speed * speed_affect_mod
 	launch_treasure_object(new_object, modified_speed)
@@ -28,11 +28,13 @@ func spawn_treasure_as_drop(treasure: Treasure) -> void:
 	TreasurePool.instance.return_object_to_pool(new_object)
 
 func setup_treasure_object(treasure: Treasure) -> TreasureObject:
+	const INACTIVE_BITMASK: int = 0b100001000
+	
 	var treasure_object: TreasureObject = TreasurePool.instance.get_object_from_pool(treasure)
 	treasure_object.treasure = treasure
 	treasure_object.wave_created_on = GameMaster.current_wave + 1
 	treasure_object.can_be_picked_up = false
-	treasure_object.collision_mask = 264
+	treasure_object.collision_mask = INACTIVE_BITMASK
 	return treasure_object
 
 func launch_treasure_object(treasure_object: TreasureObject, speed: float) -> void:
